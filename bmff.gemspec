@@ -5,11 +5,11 @@ require 'bmff/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "bmff"
-  spec.version       = Bmff::VERSION
+  spec.version       = BMFF::VERSION
   spec.authors       = ["Takayuki Ogiso"]
   spec.email         = ["gomatofu@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{ISO Base Media File Format Parser}
+  spec.description   = %q{ISO Base Media File Format file parser.}
   spec.homepage      = ""
   spec.license       = "MIT"
 

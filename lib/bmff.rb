@@ -1,5 +1,5 @@
 require "bmff/version"
 
-module Bmff
+module BMFF
   # Your code goes here...
 end
