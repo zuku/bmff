@@ -1,5 +1,5 @@
 require "bmff/version"
+require "bmff/file_container"
 
 module BMFF
-  # Your code goes here...
 end
