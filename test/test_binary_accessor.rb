@@ -142,4 +142,27 @@ class TestBMFFBinaryAccessor < MiniTest::Unit::TestCase
       io.get_uint64
     end
   end
+
+  def test_get_ascii
+    io = StringIO.new("abcdefgh", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    assert_equal("abcd", io.get_ascii(4))
+    assert_equal("efgh", io.get_ascii(4))
+    assert(io.eof?)
+  end
+
+  def test_get_ascii_null_terminated
+    io = StringIO.new("ab\x00\x00", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    assert_equal("ab\x00\x00", io.get_ascii(4))
+    assert(io.eof?)
+  end
+
+  def test_get_ascii_insufficient_data
+    io = StringIO.new("abc", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    assert_raises(EOFError) do
+      io.get_ascii(4)
+    end
+  end
 end

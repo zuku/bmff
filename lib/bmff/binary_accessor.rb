@@ -39,6 +39,10 @@ module BMFF::BinaryAccessor
     (b1 << 32) | b2
   end
 
+  def get_ascii(size)
+    _sysread(size).unpack("a*").first
+  end
+
   private
   def flip_byte_if_needed(data)
     if BYTE_ORDER == :le
