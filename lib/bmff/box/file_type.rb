@@ -6,11 +6,11 @@ class BMFF::Box::FileType < BMFF::Box::Base
 
   def parse_data
     super
-    @major_brand = io.sysread(4).unpack("a4").first
-    @minor_version = io.sysread(4).unpack("N").first
+    @major_brand = io.get_ascii(4)
+    @minor_version = io.get_uint32
     @compatible_brands = []
     until eob?
-      @compatible_brands << io.sysread(4).unpack("a4").first
+      @compatible_brands << io.get_ascii(4)
     end
   end
 end

@@ -10,6 +10,7 @@ class BMFF::FileContainer
   end
 
   def self.parse(io)
+    io.extend(BMFF::BinaryAccessor)
     container = self.new(io)
     until io.eof?
       container.boxes << BMFF::Box.get_box(io, container)

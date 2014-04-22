@@ -10,8 +10,8 @@ require "bmff/box/file_type"
 module BMFF::Box
   def self.get_box(io, parent)
     offset = io.pos
-    size = io.sysread(4).unpack("N").first
-    type = io.sysread(4).unpack("a4").first
+    size = io.get_uint32
+    type = io.get_ascii(4)
 
     klass = get_box_class(type)
     box = klass.new

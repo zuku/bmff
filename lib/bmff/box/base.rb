@@ -35,10 +35,10 @@ class BMFF::Box::Base
 
   def parse_data
     if size == 1
-      @largesize = io.sysread(8).unpack("Q").first # TODO: flip byte order
+      @largesize = io.get_uint64
     end
     if type == 'uuid'
-      @usertype = io.sysread(16).unpack("C16")
+      @usertype = io.get_uuid
     end
   end
 end
