@@ -3,6 +3,7 @@
 
 class BMFF::Box::FileType < BMFF::Box::Base
   attr_accessor :major_brand, :minor_version, :compatible_brands
+  register_box "ftyp"
 
   def parse_data
     super

@@ -3,6 +3,7 @@
 
 module BMFF::Box; end
 
+require "bmff/box/map"
 require "bmff/box/base"
 require "bmff/box/unknown"
 require "bmff/box/file_type"
@@ -26,11 +27,9 @@ module BMFF::Box
   end
 
   def self.get_box_class(type)
-    return case type
-    when "ftyp"
-      BMFF::Box::FileType
-    else
-      BMFF::Box::Unknown
+    if klass = Map.get_box_class(type)
+      return klass
     end
+    return BMFF::Box::Unknown
   end
 end
