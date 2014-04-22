@@ -43,6 +43,11 @@ module BMFF::BinaryAccessor
     _sysread(size).unpack("a*").first
   end
 
+  def get_uuid
+    # TODO: create and return UUID type.
+    _sysread(16)
+  end
+
   private
   def flip_byte_if_needed(data)
     if BYTE_ORDER == :le
