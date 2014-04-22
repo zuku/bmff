@@ -6,7 +6,7 @@ require 'bmff/binary_accessor'
 require 'stringio'
 
 class TestBMFFBinaryAccessor < MiniTest::Unit::TestCase
-  def test_to_uint8
+  def test_get_uint8
     io = StringIO.new("\x00\xFF\xF0", "r:ascii-8bit")
     io.extend(BMFF::BinaryAccessor)
     assert_equal(0, io.get_uint8)
