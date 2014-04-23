@@ -7,9 +7,6 @@ class BMFF::Box::Movie < BMFF::Box::Base
 
   def parse_data
     super
-    @children = []
-    until eob?
-      @children << BMFF::Box.get_box(io, self)
-    end
+    parse_children
   end
 end

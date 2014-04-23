@@ -7,4 +7,11 @@ module BMFF::Box::Container
   def container?
     true
   end
+
+  def parse_children
+    @children = []
+    until eob?
+      @children << BMFF::Box.get_box(io, self)
+    end
+  end
 end
