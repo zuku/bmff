@@ -5,8 +5,10 @@ class BMFF::Box::Base
   attr_accessor :size, :type, :largesize, :usertype,
                 :io, :offset, :parent
 
-  def self.register_box(boxtype)
-    BMFF::Box::Map.register_box(boxtype, self)
+  def self.register_box(*boxtypes)
+    boxtypes.each do |boxtype|
+      BMFF::Box::Map.register_box(boxtype, self)
+    end
   end
 
   def actual_size
