@@ -19,9 +19,9 @@ class TestBMFFFileContainer < MiniTest::Unit::TestCase
       assert_equal(5, file_container.boxes.count)
       assert_instance_of(BMFF::Box::FileType, file_container.boxes[0])
       assert_instance_of(BMFF::Box::Unknown, file_container.boxes[1])
-      assert_instance_of(BMFF::Box::Unknown, file_container.boxes[2])
-      assert_instance_of(BMFF::Box::Unknown, file_container.boxes[3])
-      assert_instance_of(BMFF::Box::Unknown, file_container.boxes[4])
+      assert_instance_of(BMFF::Box::FreeSpace, file_container.boxes[2])
+      assert_instance_of(BMFF::Box::FreeSpace, file_container.boxes[3])
+      assert_instance_of(BMFF::Box::MediaData, file_container.boxes[4])
     end
   end
 end

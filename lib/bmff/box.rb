@@ -7,6 +7,8 @@ require "bmff/box/map"
 require "bmff/box/base"
 require "bmff/box/unknown"
 require "bmff/box/file_type"
+require "bmff/box/media_data"
+require "bmff/box/free_space"
 
 module BMFF::Box
   def self.get_box(io, parent)
