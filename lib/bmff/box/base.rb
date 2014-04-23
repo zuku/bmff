@@ -47,4 +47,8 @@ class BMFF::Box::Base
       @usertype = io.get_uuid
     end
   end
+
+  def container?
+    false
+  end
 end

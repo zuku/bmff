@@ -5,10 +5,16 @@ module BMFF::Box; end
 
 require "bmff/box/map"
 require "bmff/box/base"
+require "bmff/box/full"
+require "bmff/box/container"
 require "bmff/box/unknown"
+
 require "bmff/box/file_type"
 require "bmff/box/media_data"
 require "bmff/box/free_space"
+require "bmff/box/progressive_download_info"
+require "bmff/box/movie"
+require "bmff/box/movie_header"
 
 module BMFF::Box
   def self.get_box(io, parent)
