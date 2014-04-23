@@ -1,14 +1,14 @@
 # coding: utf-8
 # vim: set expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent:
 
-require 'minitest_helper'
+require_relative '../minitest_helper'
 require 'bmff/file_container'
 
 class TestBMFFFileContainer < MiniTest::Unit::TestCase
   SAMPLE_FILE_COMMON_MP4 = 'bmff.mp4'
 
   def get_sample_file_path(file_name)
-    return File.join(File.expand_path('../assets', __FILE__), file_name)
+    return File.join(File.expand_path('../../assets', __FILE__), file_name)
   end
 
   def test_parse
