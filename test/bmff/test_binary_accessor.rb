@@ -166,6 +166,88 @@ class TestBMFFBinaryAccessor < MiniTest::Unit::TestCase
     end
   end
 
+  def test_get_ascii_out_of_range
+    io = StringIO.new("abc", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    assert_raises(RangeError) do
+      io.get_ascii(0)
+    end
+    assert_raises(RangeError) do
+      io.get_ascii(-1)
+    end
+  end
+
+  def test_get_ascii_invalid_size
+    io = StringIO.new("abc", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    assert_raises(TypeError) do
+      io.get_ascii(1.0)
+    end
+    assert_raises(TypeError) do
+      io.get_ascii(nil)
+    end
+    assert_raises(TypeError) do
+      io.get_ascii("1")
+    end
+    assert_raises(TypeError) do
+      io.get_ascii(true)
+    end
+    assert_raises(TypeError) do
+      io.get_ascii(false)
+    end
+  end
+
+  def test_get_byte
+    io = StringIO.new("\x00\x01\x02\x03\x04\x05\x06\x07\xFF\xFE\xFD\xFC\xFB\xFA\xF9\xF8", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    assert_equal("\x00".force_encoding("ascii-8bit"), io.get_byte)
+    assert_equal("\x01\x02".force_encoding("ascii-8bit"), io.get_byte(2))
+    assert_equal("\x03\x04\x05".force_encoding("ascii-8bit"), io.get_byte(3))
+    assert_equal("\x06\x07\xFF\xFE".force_encoding("ascii-8bit"), io.get_byte(4))
+    assert_equal("\xFD\xFC\xFB\xFA\xF9".force_encoding("ascii-8bit"), io.get_byte(5))
+    assert_equal("\xF8".force_encoding("ascii-8bit"), io.get_byte)
+    assert(io.eof?)
+  end
+
+  def test_get_byte_insufficient_data
+    io = StringIO.new("\x00\x00", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    assert_raises(EOFError) do
+      io.get_byte(3)
+    end
+  end
+
+  def test_get_byte_out_of_range
+    io = StringIO.new("\x00\x00", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    assert_raises(RangeError) do
+      io.get_byte(0)
+    end
+    assert_raises(RangeError) do
+      io.get_byte(-1)
+    end
+  end
+
+  def test_get_byte_invalid_size
+    io = StringIO.new("\x00\x00", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    assert_raises(TypeError) do
+      io.get_byte(1.0)
+    end
+    assert_raises(TypeError) do
+      io.get_byte(nil)
+    end
+    assert_raises(TypeError) do
+      io.get_byte("1")
+    end
+    assert_raises(TypeError) do
+      io.get_byte(true)
+    end
+    assert_raises(TypeError) do
+      io.get_byte(false)
+    end
+  end
+
   def test_get_uuid
     io = StringIO.new("\x00\x01\x02\x03\x04\x05\x06\x07\x80\x90\xA0\xB0\xC0\xD0\xE0\xF0", "r:ascii-8bit")
     io.extend(BMFF::BinaryAccessor)

@@ -43,6 +43,10 @@ module BMFF::BinaryAccessor
     _sysread(size).unpack("a*").first
   end
 
+  def get_byte(size = 1)
+    _sysread(size)
+  end
+
   def get_uuid
     # TODO: create and return UUID type.
     _sysread(16)
@@ -57,6 +61,8 @@ module BMFF::BinaryAccessor
   end
 
   def _sysread(size)
+    raise TypeError unless size.kind_of?(Integer)
+    raise RangeError if size <= 0
     data = sysread(size)
     raise EOFError unless data.bytesize == size
     data
