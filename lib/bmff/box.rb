@@ -23,6 +23,7 @@ require "bmff/box/track_group"
 require "bmff/box/track_group_type"
 require "bmff/box/media"
 require "bmff/box/media_header"
+require "bmff/box/handler"
 
 module BMFF::Box
   def self.get_box(io, parent)
