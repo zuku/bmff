@@ -16,6 +16,7 @@ require "bmff/box/progressive_download_info"
 require "bmff/box/movie"
 require "bmff/box/movie_header"
 require "bmff/box/track"
+require "bmff/box/track_header"
 
 module BMFF::Box
   def self.get_box(io, parent)
