@@ -17,6 +17,13 @@ class BMFF::Box::Base
     return size
   end
 
+  def remaining_size
+    if actual_size
+      return (offset + actual_size) - io.pos
+    end
+    nil
+  end
+
   # end of box?
   def eob?
     if actual_size
