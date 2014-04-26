@@ -5,46 +5,46 @@ module BMFF::BinaryAccessor
   BYTE_ORDER = "\xFE\xFF".unpack("s").first == 0xFEFF ? :be : :le
 
   def get_int8
-    sysread(1).unpack("c").first
+    _read(1).unpack("c").first
   end
 
   def get_uint8
-    sysread(1).unpack("C").first
+    _read(1).unpack("C").first
   end
 
   def get_int16
-    flip_byte_if_needed(_sysread(2)).unpack("s").first
+    flip_byte_if_needed(_read(2)).unpack("s").first
   end
 
   def get_uint16
-    _sysread(2).unpack("n").first
+    _read(2).unpack("n").first
   end
 
   def get_int32
-    flip_byte_if_needed(_sysread(4)).unpack("l").first
+    flip_byte_if_needed(_read(4)).unpack("l").first
   end
 
   def get_uint32
-    _sysread(4).unpack("N").first
+    _read(4).unpack("N").first
   end
 
   def get_int64
-    b1 = flip_byte_if_needed(_sysread(4)).unpack("l").first
-    b2 = _sysread(4).unpack("N").first
+    b1 = flip_byte_if_needed(_read(4)).unpack("l").first
+    b2 = _read(4).unpack("N").first
     (b1 << 32) | b2
   end
 
   def get_uint64
-    b1, b2 = _sysread(8).unpack("N2")
+    b1, b2 = _read(8).unpack("N2")
     (b1 << 32) | b2
   end
 
   def get_ascii(size)
-    _sysread(size).unpack("a*").first
+    _read(size).unpack("a*").first
   end
 
   def get_byte(size = 1)
-    _sysread(size)
+    _read(size)
   end
 
   # Null-terminated string
@@ -54,9 +54,8 @@ module BMFF::BinaryAccessor
   def get_null_terminated_string(max_byte = nil)
     buffer = ""
     read_byte = 0
-    b = nil
     until eof?
-      b = _sysread(1)
+      b = read(1)
       read_byte += 1
       break if b == "\x00"
       buffer << b
@@ -83,7 +82,7 @@ module BMFF::BinaryAccessor
 
   def get_uuid
     # TODO: create and return UUID type.
-    _sysread(16)
+    _read(16)
   end
 
   private
@@ -94,10 +93,11 @@ module BMFF::BinaryAccessor
     return data
   end
 
-  def _sysread(size)
+  def _read(size)
     raise TypeError unless size.kind_of?(Integer)
     raise RangeError if size <= 0
-    data = sysread(size)
+    data = read(size)
+    raise EOFError unless data
     raise EOFError unless data.bytesize == size
     data
   end
