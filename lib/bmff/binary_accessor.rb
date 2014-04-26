@@ -47,6 +47,17 @@ module BMFF::BinaryAccessor
     _sysread(size)
   end
 
+  # Return ISO 639-2/T code
+  # Each character is compressed into 5-bit width.
+  # The bit 5 and 6 values are always 1. The bit 7 value is always 0.
+  def get_iso639_2_language
+    lang = get_uint16
+    c1 = (lang >> 10) & 0x1F | 0x60
+    c2 = (lang >>  5) & 0x1F | 0x60
+    c3 =  lang        & 0x1F | 0x60
+    sprintf("%c%c%c", c1, c2, c3)
+  end
+
   def get_uuid
     # TODO: create and return UUID type.
     _sysread(16)

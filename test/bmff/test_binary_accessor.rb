@@ -248,6 +248,21 @@ class TestBMFFBinaryAccessor < MiniTest::Unit::TestCase
     end
   end
 
+  def test_get_iso639_2_language
+    io = StringIO.new("\x15\xC7", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    assert_equal("eng", io.get_iso639_2_language)
+    assert(io.eof?)
+  end
+
+  def test_iso639_2_language_insufficient_data
+    io = StringIO.new("\x00", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    assert_raises(EOFError) do
+      io.get_iso639_2_language
+    end
+  end
+
   def test_get_uuid
     io = StringIO.new("\x00\x01\x02\x03\x04\x05\x06\x07\x80\x90\xA0\xB0\xC0\xD0\xE0\xF0", "r:ascii-8bit")
     io.extend(BMFF::BinaryAccessor)
