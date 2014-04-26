@@ -19,6 +19,8 @@ require "bmff/box/track"
 require "bmff/box/track_header"
 require "bmff/box/track_reference"
 require "bmff/box/track_reference_type"
+require "bmff/box/track_group"
+require "bmff/box/track_group_type"
 
 module BMFF::Box
   def self.get_box(io, parent)
