@@ -47,6 +47,29 @@ module BMFF::BinaryAccessor
     _sysread(size)
   end
 
+  # Null-terminated string
+  # An encoding of this string is maybe UTF-8.
+  # Other encodings are possible.
+  # (e.g. Apple Media Handler outputs non UTF-8 string)
+  def get_null_terminated_string(max_byte = nil)
+    buffer = ""
+    read_byte = 0
+    b = nil
+    until eof?
+      b = _sysread(1)
+      read_byte += 1
+      break if b == "\x00"
+      buffer << b
+      break if max_byte && read_byte >= max_byte
+    end
+    # UTF-8, Shift_JIS or ASCII-8BIT (fallback)
+    %w(UTF-8 Shift_JIS ASCII-8BIT).each do |encoding|
+      buffer.force_encoding(encoding)
+      break if buffer.valid_encoding?
+    end
+    buffer
+  end
+
   # Return ISO 639-2/T code
   # Each character is compressed into 5-bit width.
   # The bit 5 and 6 values are always 1. The bit 7 value is always 0.

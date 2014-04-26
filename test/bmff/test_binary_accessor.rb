@@ -248,6 +248,69 @@ class TestBMFFBinaryAccessor < MiniTest::Unit::TestCase
     end
   end
 
+  def test_null_terminated_string_utf8
+    io = StringIO.new("ABCDEFG \xC3\x80\xC3\x81 \xE3\xBF\xB0\xE3\xBF\xB1\x00", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    actual = io.get_null_terminated_string
+    assert_equal(Encoding::UTF_8, actual.encoding)
+    assert_equal("ABCDEFG ÀÁ 㿰㿱", actual)
+    assert(io.eof?)
+  end
+
+  def test_null_terminated_string_shift_jis
+    io = StringIO.new("\x41\x42\x43\x44\x45\x46\x47\x20\x82\x60\x82\x61\x20\x82\xF0\x82\xF1\x00", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    actual = io.get_null_terminated_string
+    assert_equal(Encoding::Shift_JIS, actual.encoding)
+    assert_equal("ABCDEFG ＡＢ をん", actual.encode("UTF-8"))
+    assert(io.eof?)
+  end
+
+  def test_null_terminated_string_unknown_encoding
+    io = StringIO.new("\x41\x42\x43\x44\x45\x46\x47\x20\xA3\xC1\xA3\xC2\x20\xA4\xF2\xA4\xF3\x00", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    actual = io.get_null_terminated_string
+    assert_equal(Encoding::ASCII_8BIT, actual.encoding)
+    assert_equal("\x41\x42\x43\x44\x45\x46\x47\x20\xA3\xC1\xA3\xC2\x20\xA4\xF2\xA4\xF3".force_encoding("ASCII-8BIT"), actual.encode)
+    assert(io.eof?)
+  end
+
+  def test_null_terminated_string_with_max_byte
+    io = StringIO.new("ABCDEFGHIJKLMNOPQRSTUVWXYZ\x00", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    actual = io.get_null_terminated_string(27)
+    assert_equal(Encoding::UTF_8, actual.encoding)
+    assert_equal("ABCDEFGHIJKLMNOPQRSTUVWXYZ", actual)
+    assert(io.eof?)
+  end
+
+  def test_null_terminated_string_with_max_byte_long
+    io = StringIO.new("ABCDEFGHIJKLMNOPQRSTUVWXYZ\x00", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    actual = io.get_null_terminated_string(30)
+    assert_equal(Encoding::UTF_8, actual.encoding)
+    assert_equal("ABCDEFGHIJKLMNOPQRSTUVWXYZ", actual)
+    assert(io.eof?)
+  end
+
+  def test_null_terminated_string_with_max_byte_short
+    io = StringIO.new("ABCDEFGHIJKLMNOPQRSTUVWXYZ\x00", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    actual = io.get_null_terminated_string(16)
+    assert_equal(Encoding::UTF_8, actual.encoding)
+    assert_equal("ABCDEFGHIJKLMNOP", actual)
+    assert(!io.eof?)
+  end
+
+  def test_null_terminated_string_is_not_terminated
+    io = StringIO.new("ABCDEFGHIJKLMNOPQRSTUVWXYZ", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    actual = io.get_null_terminated_string
+    assert_equal(Encoding::UTF_8, actual.encoding)
+    assert_equal("ABCDEFGHIJKLMNOPQRSTUVWXYZ", actual)
+    assert(io.eof?)
+  end
+
   def test_get_iso639_2_language
     io = StringIO.new("\x15\xC7", "r:ascii-8bit")
     io.extend(BMFF::BinaryAccessor)
