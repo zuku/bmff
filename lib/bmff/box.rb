@@ -29,6 +29,7 @@ require "bmff/box/video_media_header"
 require "bmff/box/sound_media_header"
 require "bmff/box/hint_media_header"
 require "bmff/box/null_media_header"
+require "bmff/box/sample_table"
 
 module BMFF::Box
   def self.get_box(io, parent)
