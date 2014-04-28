@@ -30,14 +30,33 @@ require "bmff/box/sound_media_header"
 require "bmff/box/hint_media_header"
 require "bmff/box/null_media_header"
 require "bmff/box/sample_table"
+require "bmff/box/sample_entry"
+require "bmff/box/hint_sample_entry"
+require "bmff/box/bit_rate"
+require "bmff/box/meta_data_sample_entry"
+require "bmff/box/xml_meta_data_sample_entry"
+require "bmff/box/text_meta_data_sample_entry"
+require "bmff/box/uri"
+require "bmff/box/uri_init"
+require "bmff/box/uri_meta_sample_entry"
+require "bmff/box/pixel_aspect_ratio"
+require "bmff/box/clean_aperture"
+require "bmff/box/colour_information"
+require "bmff/box/visual_sample_entry"
+require "bmff/box/audio_sample_entry"
+require "bmff/box/sample_description"
 
 module BMFF::Box
-  def self.get_box(io, parent)
+  def self.get_box(io, parent, box_class = nil)
     offset = io.pos
     size = io.get_uint32
     type = io.get_ascii(4)
 
-    klass = get_box_class(type)
+    if box_class
+      klass = box_class
+    else
+      klass = get_box_class(type)
+    end
     box = klass.new
     box.io = io
     box.offset = offset
