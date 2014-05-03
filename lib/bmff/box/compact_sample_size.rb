@@ -7,7 +7,7 @@ class BMFF::Box::CompactSampleSize < BMFF::Box::Full
 
   def parse_data
     super
-    @reserved1 = io.get_byte(3)
+    @reserved1 = io.get_uint24
     @field_size = io.get_uint8
     @sample_count = io.get_uint32
     @entry_size = []
