@@ -20,6 +20,10 @@ module BMFF::BinaryAccessor
     _read(2).unpack("n").first
   end
 
+  def get_uint24
+    (get_uint8 << 16) | get_uint16
+  end
+
   def get_int32
     flip_byte_if_needed(_read(4)).unpack("l").first
   end

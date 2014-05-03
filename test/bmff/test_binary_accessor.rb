@@ -73,6 +73,14 @@ class TestBMFFBinaryAccessor < MiniTest::Unit::TestCase
     end
   end
 
+  def test_get_uint24
+    io = StringIO.new("\x00\x00\x00\xFF\xFF\xFF", "r:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    assert_equal(0, io.get_uint24)
+    assert_equal(16777215, io.get_uint24)
+    assert(io.eof?)
+  end
+
   def test_get_int32
     io = StringIO.new("\x00\x00\x00\x00\xFF\xFF\xFF\xFF\x80\x00\x00\x00", "r:ascii-8bit")
     io.extend(BMFF::BinaryAccessor)
