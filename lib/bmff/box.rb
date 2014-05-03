@@ -70,6 +70,11 @@ require "bmff/box/sample_auxiliary_information_offsets"
 require "bmff/box/movie_extends"
 require "bmff/box/movie_extends_header"
 require "bmff/box/track_extends"
+require "bmff/box/movie_fragment"
+require "bmff/box/movie_fragment_header"
+require "bmff/box/track_fragment"
+require "bmff/box/track_fragment_header"
+require "bmff/box/track_run"
 
 module BMFF::Box
   def self.get_box(io, parent, box_class = nil)
