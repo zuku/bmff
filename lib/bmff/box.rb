@@ -54,6 +54,8 @@ require "bmff/box/composition_to_decode"
 require "bmff/box/sync_sample"
 require "bmff/box/shadow_sync_sample"
 require "bmff/box/sample_dependency_type"
+require "bmff/box/edit"
+require "bmff/box/edit_list"
 
 module BMFF::Box
   def self.get_box(io, parent, box_class = nil)
