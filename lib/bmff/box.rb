@@ -45,6 +45,15 @@ require "bmff/box/colour_information"
 require "bmff/box/visual_sample_entry"
 require "bmff/box/audio_sample_entry"
 require "bmff/box/sample_description"
+require "bmff/box/sample_size"
+require "bmff/box/compact_sample_size"
+require "bmff/box/degradation_priority"
+require "bmff/box/time_to_sample"
+require "bmff/box/composition_offset"
+require "bmff/box/composition_to_decode"
+require "bmff/box/sync_sample"
+require "bmff/box/shadow_sync_sample"
+require "bmff/box/sample_dependency_type"
 
 module BMFF::Box
   def self.get_box(io, parent, box_class = nil)
