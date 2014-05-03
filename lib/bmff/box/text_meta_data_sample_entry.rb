@@ -8,12 +8,11 @@ class BMFF::Box::TextMetaDataSampleEntry < BMFF::Box::MetaDataSampleEntry
 
   def parse_data
     super
-    @children = []
     @content_encoding = io.get_null_terminated_string
     @mime_format = io.get_null_terminated_string
     unless eob?
       @bit_rate_box = BMFF::Box.get_box(io, self, BMFF::Box.BitRate)
-      @children << @bit_rate_box
+      add_child @bit_rate_box
     end
   end
 end

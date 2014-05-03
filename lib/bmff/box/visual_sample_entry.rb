@@ -9,7 +9,6 @@ class BMFF::Box::VisualSampleEntry < BMFF::Box::SampleEntry
 
   def parse_data
     super
-    @children = []
     @pre_defined1 = io.get_uint16
     @reserved2 = io.get_uint16
     @pre_defined2 = [io.get_uint32, io.get_uint32, io.get_uint32]
@@ -26,7 +25,7 @@ class BMFF::Box::VisualSampleEntry < BMFF::Box::SampleEntry
     @pre_defined3 = io.get_int16
     until eob?
       box = BMFF::Box.get_box(io, self)
-      @children << box
+      add_child box
       case box
       when BMFF::Box::CleanAperture
         @clean_aperture_box = box

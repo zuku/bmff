@@ -9,10 +9,10 @@ class BMFF::Box::URIMetaSampleEntry < BMFF::Box::MetaDataSampleEntry
   def parse_data
     super
     @uri_box = BMFF::Box.get_box(io, self, BMFF::Box::URI)
-    @children = [@uri_box]
+    add_child @uri_box
     until eob?
       box = BMFF::Box.get_box(io, self)
-      @children << box
+      add_child box
       case box
       when BMFF::Box::URIInit
         @uri_init_box = box

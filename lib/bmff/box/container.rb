@@ -15,6 +15,11 @@ module BMFF::Box::Container
     end
   end
 
+  def add_child(child)
+    @children ||= []
+    @children << child
+  end
+
   # Find a box which has a specific type from this children.
   def find(boxtype)
     (@children || []).each do |child|
