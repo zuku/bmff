@@ -60,6 +60,9 @@ require "bmff/box/data_information"
 require "bmff/box/data_entry_url"
 require "bmff/box/data_entry_urn"
 require "bmff/box/data_reference"
+require "bmff/box/sample_to_chunk"
+require "bmff/box/chunk_offset"
+require "bmff/box/chunk_large_offset"
 
 module BMFF::Box
   def self.get_box(io, parent, box_class = nil)
