@@ -63,6 +63,7 @@ require "bmff/box/data_reference"
 require "bmff/box/sample_to_chunk"
 require "bmff/box/chunk_offset"
 require "bmff/box/chunk_large_offset"
+require "bmff/box/padding_bits"
 
 module BMFF::Box
   def self.get_box(io, parent, box_class = nil)
