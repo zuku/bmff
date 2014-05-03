@@ -75,6 +75,11 @@ require "bmff/box/movie_fragment_header"
 require "bmff/box/track_fragment"
 require "bmff/box/track_fragment_header"
 require "bmff/box/track_run"
+require "bmff/box/movie_fragment_random_access"
+require "bmff/box/track_fragment_random_access"
+require "bmff/box/movie_fragment_random_access_offset"
+require "bmff/box/track_fragment_base_media_decode_time"
+require "bmff/box/level_assignment"
 
 module BMFF::Box
   def self.get_box(io, parent, box_class = nil)
