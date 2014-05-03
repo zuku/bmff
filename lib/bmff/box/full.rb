@@ -6,6 +6,6 @@ class BMFF::Box::Full < BMFF::Box::Base
   def parse_data
     super
     @version = io.get_uint8
-    @flags = io.get_byte(3)
+    @flags = io.get_uint24
   end
 end
