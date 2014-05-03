@@ -67,6 +67,9 @@ require "bmff/box/padding_bits"
 require "bmff/box/sub_sample_information"
 require "bmff/box/sample_auxiliary_information_sizes"
 require "bmff/box/sample_auxiliary_information_offsets"
+require "bmff/box/movie_extends"
+require "bmff/box/movie_extends_header"
+require "bmff/box/track_extends"
 
 module BMFF::Box
   def self.get_box(io, parent, box_class = nil)
