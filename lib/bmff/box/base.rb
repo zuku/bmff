@@ -43,6 +43,11 @@ class BMFF::Box::Base
 
   def parse
     parse_data
+    if actual_size
+      if io.pos > offset + actual_size
+        raise RangeError, "Given box size is smaller than expected."
+      end
+    end
     seek_to_end
   end
 

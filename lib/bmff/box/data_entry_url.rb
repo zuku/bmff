@@ -7,6 +7,6 @@ class BMFF::Box::DataEntryUrl < BMFF::Box::Full
 
   def parse_data
     super
-    @location = io.get_null_terminated_string
+    @location = io.get_null_terminated_string(remaining_size) unless eob?
   end
 end
