@@ -56,6 +56,10 @@ require "bmff/box/shadow_sync_sample"
 require "bmff/box/sample_dependency_type"
 require "bmff/box/edit"
 require "bmff/box/edit_list"
+require "bmff/box/data_information"
+require "bmff/box/data_entry_url"
+require "bmff/box/data_entry_urn"
+require "bmff/box/data_reference"
 
 module BMFF::Box
   def self.get_box(io, parent, box_class = nil)
