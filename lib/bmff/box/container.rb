@@ -27,7 +27,7 @@ module BMFF::Box::Container
       when String
         return child if child.type == boxtype
       when Class
-        return child if child.instance_of?(boxtype)
+        return child if child.kind_of?(boxtype)
       end
     end
     nil
@@ -41,24 +41,24 @@ module BMFF::Box::Container
       when String
         found_boxes << child if child.type == boxtype
       when Class
-        found_boxes << child if child.instance_of?(boxtype)
+        found_boxes << child if child.kind_of?(boxtype)
       end
     end
     found_boxes
   end
 
-  # Find boxes which have a specific type from this offspring.
-  def select_offspring(boxtype)
+  # Find boxes which have a specific type from this descendants.
+  def select_descendants(boxtype)
     selected_boxes = []
     (@children || []).each do |child|
       case boxtype
       when String
         selected_boxes << child if child.type == boxtype
       when Class
-        selected_boxes << child if child.instance_of?(boxtype)
+        selected_boxes << child if child.kind_of?(boxtype)
       end
       if child.container?
-        selected_boxes.concat(child.select_offspring(boxtype))
+        selected_boxes.concat(child.select_descendants(boxtype))
       end
     end
     selected_boxes
