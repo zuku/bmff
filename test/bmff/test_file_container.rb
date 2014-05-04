@@ -24,4 +24,29 @@ class TestBMFFFileContainer < MiniTest::Unit::TestCase
       assert_instance_of(BMFF::Box::MediaData, file_container.boxes[4])
     end
   end
+
+  def test_select_descendants
+    open(get_sample_file_path(SAMPLE_FILE_COMMON_MP4), "rb:ascii-8bit") do |f|
+      file_container = BMFF::FileContainer.parse(f)
+      assert_kind_of(BMFF::FileContainer, file_container)
+      assert_kind_of(Array, file_container.boxes)
+      assert_equal(5, file_container.boxes.count)
+
+      boxes = file_container.select_descendants(BMFF::Box::FileType)
+      assert_equal(1, boxes.count)
+      assert_kind_of(BMFF::Box::FileType, boxes[0])
+      boxes = file_container.select_descendants("ftyp")
+      assert_equal(1, boxes.count)
+      assert_kind_of(BMFF::Box::FileType, boxes[0])
+
+      boxes = file_container.select_descendants(BMFF::Box::Track)
+      assert_equal(2, boxes.count)
+      assert_kind_of(BMFF::Box::Track, boxes[0])
+      assert_kind_of(BMFF::Box::Track, boxes[1])
+      boxes = file_container.select_descendants("trak")
+      assert_equal(2, boxes.count)
+      assert_kind_of(BMFF::Box::Track, boxes[0])
+      assert_kind_of(BMFF::Box::Track, boxes[1])
+    end
+  end
 end

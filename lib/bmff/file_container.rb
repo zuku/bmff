@@ -17,4 +17,21 @@ class BMFF::FileContainer
     end
     return container
   end
+
+  # Find boxes which have a specific type from this descendants.
+  def select_descendants(boxtype)
+    selected_boxes = []
+    (@boxes || []).each do |box|
+      case boxtype
+      when String
+        selected_boxes << box if box.type == boxtype
+      when Class
+        selected_boxes << box if box.kind_of?(boxtype)
+      end
+      if box.container?
+        selected_boxes.concat(box.select_descendants(boxtype))
+      end
+    end
+    selected_boxes
+  end
 end
