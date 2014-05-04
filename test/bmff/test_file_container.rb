@@ -49,6 +49,10 @@ class TestBMFFFileContainer < MiniTest::Unit::TestCase
       assert_equal(2, boxes.count)
       assert_kind_of(BMFF::Box::Track, boxes[0])
       assert_kind_of(BMFF::Box::Track, boxes[1])
+
+      boxes = file_container.select_descendants("noex")
+      assert_kind_of(Array, boxes)
+      assert_equal(0, boxes.count)
     end
   end
 end
