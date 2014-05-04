@@ -8,7 +8,9 @@ class TestBMFFFileContainer < MiniTest::Unit::TestCase
   SAMPLE_FILE_COMMON_MP4 = 'bmff.mp4'
 
   def get_sample_file_path(file_name)
-    return File.join(File.expand_path('../../assets', __FILE__), file_name)
+    file_path = File.join(File.expand_path('../../assets', __FILE__), file_name)
+    skip "Asset file does not exist." unless FileTest.exist? file_path
+    file_path
   end
 
   def test_parse
