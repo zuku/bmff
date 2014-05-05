@@ -21,6 +21,99 @@ Or install it yourself as:
 ## Usage
 
 
+## Progress
+
+|Box Name                                     |      Type      |   Status  |
+|:--------------------------------------------|:--------------:|:---------:|
+|File Type Box                                |      ftyp      |OK         | \ 4.3
+|Media Data Box                               |      mdat      |Parsable   | \ 8.1.1
+|Free Space Box                               |   free, skip   |Parsable   | \ 8.1.2
+|Progressive Download Information Box         |      pdin      |Parsable   | \ 8.1.3
+|Movie Box                                    |      moov      |Parsable   | \ 8.2.1
+|Movie Header Box                             |      mvhd      |Parsable   | \ 8.2.2
+|Track Box                                    |      trak      |Parsable   | \ 8.3.1
+|Track Header Box                             |      tkhd      |Parsable   | \ 8.3.2
+|Track Reference Box                          |      tref      |Parsable   | \ 8.3.3
+|Track Group Box                              |      trgr      |Parsable   | \ 8.3.4
+|Media Box                                    |      mdia      |Parsable   | \ 8.4.1
+|Media Header Box                             |      mdhd      |Parsable   | \ 8.4.2
+|Handler Reference Box                        |      hdlr      |Parsable   | \ 8.4.3
+|Media Information Box                        |      minf      |Parsable   | \ 8.4.4
+|Video Media Header Box                       |      vmhd      |Parsable   | \ 8.4.5.2
+|Sound Media Header Box                       |      smhd      |Parsable   | \ 8.4.5.3
+|Hint Media Header Box                        |      hmhd      |Parsable   | \ 8.4.5.4
+|Null Media Header Box                        |      nmhd      |Parsable   | \ 8.4.5.5
+|Sample Table Box                             |      stbl      |Parsable   | \ 8.5.1
+|Sample Description Box                       |      stsd      |Parsable   | \ 8.5.2
+|Degradation Priority Box                     |      stdp      |Parsable   | \ 8.5.3
+|Decoding Time to Sample Box                  |      stts      |Parsable   | \ 8.6.1.2
+|Composition Time to Sample Box               |      ctts      |Parsable   | \ 8.6.1.3
+|Composition to Decode Box                    |      cslg      |Parsable   | \ 8.6.1.4
+|Sync Sample Box                              |      stss      |Parsable   | \ 8.6.2
+|Shadow Sync Sample Box                       |      stsh      |Parsable   | \ 8.6.3
+|Independent and Disposable Samples Box       |      sdtp      |Parsable   | \ 8.6.4
+|Edit Box                                     |      edts      |Parsable   | \ 8.6.5
+|Edit List Box                                |      elst      |Parsable   | \ 8.6.6
+|Data Information Box                         |      dinf      |Parsable   | \ 8.7.1
+|Data Reference Box                           |url , urn , dref|Parsable   | \ 8.7.2
+|Sample Size Box                              |      stsz      |Parsable   | \ 8.7.3.2
+|Compact Sample Size Box                      |      stz2      |Parsable   | \ 8.7.3.3
+|Sample to Chunk Box                          |      stsc      |Parsable   | \ 8.7.4
+|Chunk Offset Box                             |   stco, co64   |Parsable   | \ 8.7.5
+|Padding Bits Box                             |      padb      |Parsable   | \ 8.7.6
+|Sub-Sample Information Box                   |      subs      |Parsable   | \ 8.7.7
+|Sample Auxiliary Information Sizes Box       |      saiz      |Parsable   | \ 8.7.8
+|Sample Auxiliary Information Offsets Box     |      saio      |Parsable   | \ 8.7.9
+|Movie Extends Box                            |      mvex      |Parsable   | \ 8.8.1
+|Movie Extends Header Box                     |      mehd      |Parsable   | \ 8.8.2
+|Track Extends Box                            |      trex      |Parsable   | \ 8.8.3
+|Movie Fragment Box                           |      moof      |Parsable   | \ 8.8.4
+|Movie Fragment Header Box                    |      mfhd      |Parsable   | \ 8.8.5
+|Track Fragment Box                           |      traf      |Parsable   | \ 8.8.6
+|Track Fragment Header Box                    |      tfhd      |Parsable   | \ 8.8.7
+|Track Fragment Run Box                       |      trun      |Parsable   | \ 8.8.8
+|Movie Fragment Random Access Box             |      mfra      |Parsable   | \ 8.8.9
+|Track Fragment Random Access Box             |      tfra      |Parsable   | \ 8.8.10
+|Movie Fragment Random Access Offset Box      |      mfro      |Parsable   | \ 8.8.11
+|Track fragment decode time                   |      tfdt      |Parsable   | \ 8.8.12
+|Level Assignment Box                         |      leva      |Parsable   | \ 8.8.13
+|Sample to Group Box                          |      sbgp      |Not yet    | \ 8.9.2
+|Sample Group Description Box                 |      sgpd      |Not yet    | \ 8.9.3
+|User Data Box                                |      udta      |Not yet    | \ 8.10.1
+|Copyright Box                                |      cprt      |Not yet    | \ 8.10.2
+|Track Selection Box                          |      tsel      |Not yet    | \ 8.10.3
+|The Meta Box                                 |      meta      |Not yet    | \ 8.11.1
+|XML Box                                      |      xml       |Not yet    | \ 8.11.2
+|Binary XML Box                               |      bxml      |Not yet    | \ 8.11.2
+|The Item Location Box                        |      iloc      |Not yet    | \ 8.11.3
+|Primary Item Box                             |      pitm      |Not yet    | \ 8.11.4
+|Item Protection Box                          |      ipro      |Not yet    | \ 8.11.5
+|Item Information Box                         |      iinf      |Not yet    | \ 8.11.6
+|Additional Metadata Container Box            |      meco      |Not yet    | \ 8.11.7
+|Metabox Relation Box                         |      mere      |Not yet    | \ 8.11.8
+|Item Data Box                                |      idat      |Not yet    | \ 8.11.11
+|Item Reference Box                           |      iref      |Not yet    | \ 8.11.12
+|Protection Scheme Information Box            |      sinf      |Not yet    | \ 8.12.1
+|Original Format Box                          |      frma      |Not yet    | \ 8.12.2
+|Scheme Type Box                              |      schm      |Not yet    | \ 8.12.5
+|Scheme Information Box                       |      schi      |Not yet    | \ 8.12.6
+|FD Item Information Box                      |      fiin      |Not yet    | \ 8.13.2
+|File Partition Box                           |      fpar      |Not yet    | \ 8.13.3
+|FEC Reservoir Box                            |      fecr      |Not yet    | \ 8.13.4
+|FD Session Group Box                         |      segr      |Not yet    | \ 8.13.5
+|Group ID to Name Box                         |      gitn      |Not yet    | \ 8.13.6
+|File Reservoir Box                           |      fire      |Not yet    | \ 8.13.7
+|Sub Track Box                                |      strk      |Not yet    | \ 8.14.3
+|Sub Track Information Box                    |      stri      |Not yet    | \ 8.14.4
+|Sub Track Definition Box                     |      strd      |Not yet    | \ 8.14.5
+|Sub Track Sample Group Box                   |      stsg      |Not yet    | \ 8.14.6
+|Restricted Scheme Information Box            |      rinf      |Not yet    | \ 8.15.3
+|Stereo Video Box                             |      stvi      |Not yet    | \ 8.15.4.2
+|Segment Type Box                             |      styp      |Not yet    | \ 8.16.2
+|Segment Index Box                            |      sidx      |Not yet    | \ 8.16.3
+|Subsegment Index Box                         |      ssix      |Not yet    | \ 8.16.4
+|Producer Reference Time Box                  |      prft      |Not yet    | \ 8.16.5
+
 
 ## Contributing
 
