@@ -20,6 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
+TODO
 
 ## Progress
 
@@ -125,9 +126,9 @@ Or install it yourself as:
 
 ## License
 
-Copyright (C) 2014 Takayuki Ogiso.
+Copyright (c) 2014 Takayuki Ogiso.
 
-This library (except audio/visual contents) is released under the MIT license.
+This library (except audio-visual contents) is released under the MIT license.
 See LICENSE.txt.
 
-The audio/visual contents are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
+The audio-visual contents are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
