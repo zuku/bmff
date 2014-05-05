@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["gomatofu@gmail.com"]
   spec.summary       = %q{ISO BMFF Parser}
   spec.description   = %q{ISO Base Media File Format file parser.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/zuku/bmff"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").delete_if{|x| %r|/assets/| =~ x }
