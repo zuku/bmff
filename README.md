@@ -64,7 +64,7 @@ require "bmff"
 open("/path/to/video.ismv", "rb:ascii-8bit") do |f|
   file_container = BMFF::FileContainer.parse(f)
   file_container.select_descendants(BMFF::Box::TrackRun).each do |track_run|
-    puts track_run.sample_duration.inject  {|result, item| result + item}
+    puts track_run.sample_duration.inject {|result, item| result + item}
   end
 end
 ```
