@@ -15,6 +15,10 @@ module BMFF::Box::Container
     end
   end
 
+  def children
+    @children || []
+  end
+
   def add_child(child)
     @children ||= []
     @children << child
