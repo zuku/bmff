@@ -80,9 +80,9 @@ TODO
 |Level Assignment Box                         |      leva      |Parsable   | \ 8.8.13
 |Sample to Group Box                          |      sbgp      |Not yet    | \ 8.9.2
 |Sample Group Description Box                 |      sgpd      |Not yet    | \ 8.9.3
-|User Data Box                                |      udta      |Not yet    | \ 8.10.1
-|Copyright Box                                |      cprt      |Not yet    | \ 8.10.2
-|Track Selection Box                          |      tsel      |Not yet    | \ 8.10.3
+|User Data Box                                |      udta      |Parsable   | \ 8.10.1
+|Copyright Box                                |      cprt      |Parsable   | \ 8.10.2
+|Track Selection Box                          |      tsel      |Parsable   | \ 8.10.3
 |The Meta Box                                 |      meta      |Not yet    | \ 8.11.1
 |XML Box                                      |      xml       |Not yet    | \ 8.11.2
 |Binary XML Box                               |      bxml      |Not yet    | \ 8.11.2
