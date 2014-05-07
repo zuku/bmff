@@ -20,7 +20,54 @@ Or install it yourself as:
 
 ## Usage
 
-TODO
+### Dump Box Structure
+
+```ruby
+require "bmff"
+
+def print_box(box, level = 0)
+  puts "#{' ' * level}#{box.type} #{box.class}"
+  if box.container?
+    box.children.each do |child|
+      print_box(child, level + 1)
+    end
+  end
+end
+
+open("/path/to/video.mp4", "rb:ascii-8bit") do |f|
+  file_container = BMFF::FileContainer.parse(f)
+  file_container.boxes.each do |box|
+    print_box(box)
+  end
+end
+```
+
+### Get Video Duration from Media Header Box
+
+```ruby
+require "bmff"
+
+open("/path/to/video.mp4", "rb:ascii-8bit") do |f|
+  file_container = BMFF::FileContainer.parse(f)
+  media_header = file_container.select_descendants(BMFF::Box::MediaHeader).first
+  if media_header
+    puts media_header.duration / media_header.timescale.to_f
+  end
+end
+```
+
+### Get Each Fragment Duration
+
+```ruby
+require "bmff"
+
+open("/path/to/video.ismv", "rb:ascii-8bit") do |f|
+  file_container = BMFF::FileContainer.parse(f)
+  file_container.select_descendants(BMFF::Box::TrackRun).each do |track_run|
+    puts track_run.sample_duration.inject  {|result, item| result + item}
+  end
+end
+```
 
 ## Progress
 
