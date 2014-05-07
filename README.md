@@ -74,12 +74,12 @@ end
 |Box Name                                     |      Type      |   Status  |
 |:--------------------------------------------|:--------------:|:---------:|
 |File Type Box                                |      ftyp      |OK         | \ 4.3
-|Media Data Box                               |      mdat      |Parsable   | \ 8.1.1
-|Free Space Box                               |   free, skip   |Parsable   | \ 8.1.2
-|Progressive Download Information Box         |      pdin      |Parsable   | \ 8.1.3
-|Movie Box                                    |      moov      |Parsable   | \ 8.2.1
-|Movie Header Box                             |      mvhd      |Parsable   | \ 8.2.2
-|Track Box                                    |      trak      |Parsable   | \ 8.3.1
+|Media Data Box                               |      mdat      |OK         | \ 8.1.1
+|Free Space Box                               |   free, skip   |OK         | \ 8.1.2
+|Progressive Download Information Box         |      pdin      |OK         | \ 8.1.3
+|Movie Box                                    |      moov      |OK         | \ 8.2.1
+|Movie Header Box                             |      mvhd      |OK         | \ 8.2.2
+|Track Box                                    |      trak      |OK         | \ 8.3.1
 |Track Header Box                             |      tkhd      |Parsable   | \ 8.3.2
 |Track Reference Box                          |      tref      |Parsable   | \ 8.3.3
 |Track Group Box                              |      trgr      |Parsable   | \ 8.3.4
