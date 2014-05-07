@@ -82,6 +82,7 @@ require "bmff/box/track_fragment_base_media_decode_time"
 require "bmff/box/level_assignment"
 require "bmff/box/user_data"
 require "bmff/box/copyright"
+require "bmff/box/track_selection"
 
 module BMFF::Box
   def self.get_box(io, parent, box_class = nil)
