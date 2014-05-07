@@ -246,6 +246,46 @@ class TestBMFFBinaryAccessor < MiniTest::Unit::TestCase
     assert(io.eof?)
   end
 
+  def test_write_uint24
+    io = StringIO.new("", "r+:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    io.write_uint24(0)
+    io.write_uint24(16777215)
+    io.pos = 0
+    assert_equal("\x00\x00\x00\xFF\xFF\xFF", io.read)
+  end
+
+  def test_write_uint24_out_of_range
+    io = StringIO.new("", "r+:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    assert_raises(RangeError) do
+      io.write_uint24(16777216)
+    end
+    assert_raises(RangeError) do
+      io.write_uint24(-1)
+    end
+  end
+
+  def test_write_uint24_invalid_value
+    io = StringIO.new("", "r+:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    assert_raises(TypeError) do
+      io.write_uint24(0.1)
+    end
+    assert_raises(TypeError) do
+      io.write_uint24(nil)
+    end
+    assert_raises(TypeError) do
+      io.write_uint24("0")
+    end
+    assert_raises(TypeError) do
+      io.write_uint24(true)
+    end
+    assert_raises(TypeError) do
+      io.write_uint24(false)
+    end
+  end
+
   def test_get_int32
     io = StringIO.new("\x00\x00\x00\x00\xFF\xFF\xFF\xFF\x80\x00\x00\x00", "r:ascii-8bit")
     io.extend(BMFF::BinaryAccessor)

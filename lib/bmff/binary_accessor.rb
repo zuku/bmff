@@ -47,6 +47,12 @@ module BMFF::BinaryAccessor
     (get_uint8 << 16) | get_uint16
   end
 
+  def write_uint24(num)
+    expected_int(num, 0, 16777215)
+    write_uint8(num >> 16)
+    write_uint16(num & 0xFFFF)
+  end
+
   def get_int32
     flip_byte_if_needed(_read(4)).unpack("l").first
   end
