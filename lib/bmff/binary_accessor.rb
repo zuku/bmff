@@ -4,6 +4,9 @@
 module BMFF::BinaryAccessor
   BYTE_ORDER = "\xFE\xFF".unpack("s").first == 0xFEFF ? :be : :le
 
+  # UTF-8, Shift_JIS or ASCII-8BIT (fallback)
+  STRING_ENCODINGS = %w(UTF-8 Shift_JIS ASCII-8BIT)
+
   def get_int8
     _read(1).unpack("c").first
   end
@@ -117,8 +120,7 @@ module BMFF::BinaryAccessor
       buffer << b
       break if max_byte && read_byte >= max_byte
     end
-    # UTF-8, Shift_JIS or ASCII-8BIT (fallback)
-    %w(UTF-8 Shift_JIS ASCII-8BIT).each do |encoding|
+    STRING_ENCODINGS.each do |encoding|
       buffer.force_encoding(encoding)
       break if buffer.valid_encoding?
     end
