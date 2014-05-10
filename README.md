@@ -80,7 +80,7 @@ end
 |Movie Box                                    |      moov      |OK         | \ 8.2.1
 |Movie Header Box                             |      mvhd      |OK         | \ 8.2.2
 |Track Box                                    |      trak      |OK         | \ 8.3.1
-|Track Header Box                             |      tkhd      |Parsable   | \ 8.3.2
+|Track Header Box                             |      tkhd      |OK         | \ 8.3.2
 |Track Reference Box                          |      tref      |Parsable   | \ 8.3.3
 |Track Group Box                              |      trgr      |Parsable   | \ 8.3.4
 |Media Box                                    |      mdia      |Parsable   | \ 8.4.1
