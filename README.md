@@ -87,7 +87,7 @@ end
 |Track Group Box                              |      trgr      |OK         | \ 8.3.4
 |Media Box                                    |      mdia      |OK         | \ 8.4.1
 |Media Header Box                             |      mdhd      |OK         | \ 8.4.2
-|Handler Reference Box                        |      hdlr      |Parsable   | \ 8.4.3
+|Handler Reference Box                        |      hdlr      |OK         | \ 8.4.3
 |Media Information Box                        |      minf      |Parsable   | \ 8.4.4
 |Video Media Header Box                       |      vmhd      |Parsable   | \ 8.4.5.2
 |Sound Media Header Box                       |      smhd      |Parsable   | \ 8.4.5.3
