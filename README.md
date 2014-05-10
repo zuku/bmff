@@ -85,7 +85,7 @@ end
 |Track Header Box                             |      tkhd      |OK         | \ 8.3.2
 |Track Reference Box                          |      tref      |OK         | \ 8.3.3
 |Track Group Box                              |      trgr      |OK         | \ 8.3.4
-|Media Box                                    |      mdia      |Parsable   | \ 8.4.1
+|Media Box                                    |      mdia      |OK         | \ 8.4.1
 |Media Header Box                             |      mdhd      |Parsable   | \ 8.4.2
 |Handler Reference Box                        |      hdlr      |Parsable   | \ 8.4.3
 |Media Information Box                        |      minf      |Parsable   | \ 8.4.4
