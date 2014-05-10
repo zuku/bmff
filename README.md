@@ -89,7 +89,7 @@ end
 |Media Header Box                             |      mdhd      |OK         | \ 8.4.2
 |Handler Reference Box                        |      hdlr      |OK         | \ 8.4.3
 |Media Information Box                        |      minf      |OK         | \ 8.4.4
-|Video Media Header Box                       |      vmhd      |Parsable   | \ 8.4.5.2
+|Video Media Header Box                       |      vmhd      |OK         | \ 8.4.5.2
 |Sound Media Header Box                       |      smhd      |Parsable   | \ 8.4.5.3
 |Hint Media Header Box                        |      hmhd      |Parsable   | \ 8.4.5.4
 |Null Media Header Box                        |      nmhd      |Parsable   | \ 8.4.5.5
