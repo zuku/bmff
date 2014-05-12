@@ -10,6 +10,6 @@ class BMFF::Box::Handler < BMFF::Box::Full
     @pre_defined = io.get_uint32
     @handler_type = io.get_ascii(4)
     @reserved1 = [io.get_uint32, io.get_uint32, io.get_uint32]
-    @name = io.get_null_terminated_string(remaining_size)
+    @name = io.get_null_terminated_string(remaining_size) unless eob?
   end
 end
