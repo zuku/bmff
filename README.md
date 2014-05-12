@@ -93,7 +93,7 @@ end
 |Sound Media Header Box                       |      smhd      |OK         | \ 8.4.5.3
 |Hint Media Header Box                        |      hmhd      |OK         | \ 8.4.5.4
 |Null Media Header Box                        |      nmhd      |OK         | \ 8.4.5.5
-|Sample Table Box                             |      stbl      |Parsable   | \ 8.5.1
+|Sample Table Box                             |      stbl      |OK         | \ 8.5.1
 |Sample Description Box                       |      stsd      |Parsable   | \ 8.5.2
 |Degradation Priority Box                     |      stdp      |Parsable   | \ 8.5.3
 |Decoding Time to Sample Box                  |      stts      |Parsable   | \ 8.6.1.2
