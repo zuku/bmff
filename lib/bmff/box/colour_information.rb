@@ -10,7 +10,7 @@ class BMFF::Box::ColourInformation < BMFF::Box::Base
   def parse_data
     super
     @colour_type = io.get_ascii(4)
-    case @color_type
+    case @colour_type
     when "nclx"
       @colour_primaries = io.get_uint16
       @transfer_characteristics = io.get_uint16
