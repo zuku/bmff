@@ -17,8 +17,8 @@ class BMFF::Box::SampleDependencyType < BMFF::Box::Full
       sample_count.times do
         tmp = io.get_uint8
         @is_leading << (tmp >> 6)
-        @sample_depends_on << (tmp >> 4) & 0x03
-        @sample_is_depended_on << (tmp >> 2) & 0x03
+        @sample_depends_on << ((tmp >> 4) & 0x03)
+        @sample_is_depended_on << ((tmp >> 2) & 0x03)
         @sample_has_redundancy << (tmp & 0x03)
       end
     end
