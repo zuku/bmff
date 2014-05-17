@@ -95,19 +95,19 @@ end
 |Null Media Header Box                        |      nmhd      |OK         | \ 8.4.5.5
 |Sample Table Box                             |      stbl      |OK         | \ 8.5.1
 |Sample Description Box                       |      stsd      |OK         | \ 8.5.2
-|Degradation Priority Box                     |      stdp      |Parsable   | \ 8.5.3
-|Decoding Time to Sample Box                  |      stts      |Parsable   | \ 8.6.1.2
-|Composition Time to Sample Box               |      ctts      |Parsable   | \ 8.6.1.3
-|Composition to Decode Box                    |      cslg      |Parsable   | \ 8.6.1.4
-|Sync Sample Box                              |      stss      |Parsable   | \ 8.6.2
-|Shadow Sync Sample Box                       |      stsh      |Parsable   | \ 8.6.3
-|Independent and Disposable Samples Box       |      sdtp      |Parsable   | \ 8.6.4
-|Edit Box                                     |      edts      |Parsable   | \ 8.6.5
-|Edit List Box                                |      elst      |Parsable   | \ 8.6.6
-|Data Information Box                         |      dinf      |Parsable   | \ 8.7.1
-|Data Reference Box                           |url , urn , dref|Parsable   | \ 8.7.2
-|Sample Size Box                              |      stsz      |Parsable   | \ 8.7.3.2
-|Compact Sample Size Box                      |      stz2      |Parsable   | \ 8.7.3.3
+|Degradation Priority Box                     |      stdp      |OK         | \ 8.5.3
+|Decoding Time to Sample Box                  |      stts      |OK         | \ 8.6.1.2
+|Composition Time to Sample Box               |      ctts      |OK         | \ 8.6.1.3
+|Composition to Decode Box                    |      cslg      |OK         | \ 8.6.1.4
+|Sync Sample Box                              |      stss      |OK         | \ 8.6.2
+|Shadow Sync Sample Box                       |      stsh      |OK         | \ 8.6.3
+|Independent and Disposable Samples Box       |      sdtp      |OK         | \ 8.6.4
+|Edit Box                                     |      edts      |OK         | \ 8.6.5
+|Edit List Box                                |      elst      |OK         | \ 8.6.6
+|Data Information Box                         |      dinf      |OK         | \ 8.7.1
+|Data Reference Box                           |url , urn , dref|OK         | \ 8.7.2
+|Sample Size Box                              |      stsz      |OK         | \ 8.7.3.2
+|Compact Sample Size Box                      |      stz2      |OK         | \ 8.7.3.3
 |Sample to Chunk Box                          |      stsc      |Parsable   | \ 8.7.4
 |Chunk Offset Box                             |   stco, co64   |Parsable   | \ 8.7.5
 |Padding Bits Box                             |      padb      |Parsable   | \ 8.7.6
