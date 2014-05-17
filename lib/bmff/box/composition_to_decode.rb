@@ -10,7 +10,7 @@ class BMFF::Box::CompositionToDecode < BMFF::Box::Full
     super
     @composition_to_dts_shift = io.get_int32
     @least_decode_to_display_delta = io.get_int32
-    @greates_decode_to_display_delta = io.get_int32
+    @greatest_decode_to_display_delta = io.get_int32
     @composition_start_time = io.get_int32
     @composition_end_time = io.get_int32
   end
