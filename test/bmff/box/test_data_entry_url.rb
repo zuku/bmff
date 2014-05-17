@@ -13,7 +13,7 @@ class TestBMFFBoxDataEntryUrl < MiniTest::Unit::TestCase
     io.write_ascii("url ")
     io.write_uint8(0) # version
     io.write_uint24(0) # flags
-    io.write_null_terminated_string("http://example.com/")
+    io.write_null_terminated_string("http://example.com/") # location
     size = io.pos
     io.pos = 0
     io.write_uint32(size)
