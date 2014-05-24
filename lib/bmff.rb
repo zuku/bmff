@@ -1,5 +1,7 @@
 require "bmff/version"
+require "bmff/binary_accessor"
+require "bmff/box"
+require "bmff/file_container"
 
-module Bmff
-  # Your code goes here...
+module BMFF
 end
