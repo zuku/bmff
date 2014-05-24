@@ -117,7 +117,7 @@ end
 |Movie Extends Box                            |      mvex      |OK         | \ 8.8.1
 |Movie Extends Header Box                     |      mehd      |OK         | \ 8.8.2
 |Track Extends Box                            |      trex      |OK         | \ 8.8.3
-|Movie Fragment Box                           |      moof      |Parsable   | \ 8.8.4
+|Movie Fragment Box                           |      moof      |OK         | \ 8.8.4
 |Movie Fragment Header Box                    |      mfhd      |Parsable   | \ 8.8.5
 |Track Fragment Box                           |      traf      |Parsable   | \ 8.8.6
 |Track Fragment Header Box                    |      tfhd      |Parsable   | \ 8.8.7
