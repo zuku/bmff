@@ -130,7 +130,7 @@ end
 |Sample to Group Box                          |      sbgp      |Not yet    | \ 8.9.2
 |Sample Group Description Box                 |      sgpd      |Not yet    | \ 8.9.3
 |User Data Box                                |      udta      |OK         | \ 8.10.1
-|Copyright Box                                |      cprt      |Parsable   | \ 8.10.2
+|Copyright Box                                |      cprt      |OK         | \ 8.10.2
 |Track Selection Box                          |      tsel      |Parsable   | \ 8.10.3
 |The Meta Box                                 |      meta      |Not yet    | \ 8.11.1
 |XML Box                                      |      xml       |Not yet    | \ 8.11.2
