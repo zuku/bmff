@@ -125,7 +125,7 @@ end
 |Movie Fragment Random Access Box             |      mfra      |OK         | \ 8.8.9
 |Track Fragment Random Access Box             |      tfra      |OK         | \ 8.8.10
 |Movie Fragment Random Access Offset Box      |      mfro      |OK         | \ 8.8.11
-|Track fragment decode time                   |      tfdt      |Parsable   | \ 8.8.12
+|Track fragment decode time                   |      tfdt      |OK         | \ 8.8.12
 |Level Assignment Box                         |      leva      |Parsable   | \ 8.8.13
 |Sample to Group Box                          |      sbgp      |Not yet    | \ 8.9.2
 |Sample Group Description Box                 |      sgpd      |Not yet    | \ 8.9.3
