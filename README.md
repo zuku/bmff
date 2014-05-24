@@ -111,7 +111,7 @@ end
 |Sample to Chunk Box                          |      stsc      |OK         | \ 8.7.4
 |Chunk Offset Box                             |   stco, co64   |OK         | \ 8.7.5
 |Padding Bits Box                             |      padb      |OK         | \ 8.7.6
-|Sub-Sample Information Box                   |      subs      |Parsable   | \ 8.7.7
+|Sub-Sample Information Box                   |      subs      |OK         | \ 8.7.7
 |Sample Auxiliary Information Sizes Box       |      saiz      |Parsable   | \ 8.7.8
 |Sample Auxiliary Information Offsets Box     |      saio      |Parsable   | \ 8.7.9
 |Movie Extends Box                            |      mvex      |Parsable   | \ 8.8.1
