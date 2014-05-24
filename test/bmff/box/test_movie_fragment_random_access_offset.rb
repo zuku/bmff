@@ -6,7 +6,7 @@ require 'bmff/box'
 require 'stringio'
 
 class TestBMFFBoxMovieFragmentRandomAccessOffset < MiniTest::Unit::TestCase
-  def test_parse_v0
+  def test_parse
     io = StringIO.new("", "r+:ascii-8bit")
     io.extend(BMFF::BinaryAccessor)
     io.write_uint32(0)
