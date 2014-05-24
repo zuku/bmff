@@ -7,16 +7,16 @@ class BMFF::Box::PaddingBits < BMFF::Box::Full
 
   def parse_data
     super
-    @entry_count = io.get_uint32
+    @sample_count = io.get_uint32
     @reserved1 = []
     @pad1 = []
     @reserved2 = []
     @pad2 = []
-    ((@entry_count + 1) / 2).times do
+    ((@sample_count + 1) / 2).times do
       tmp = io.get_uint8
-      @reserved1 << (tmp & 0x80) > 0
-      @pad1 << (tmp >> 4) & 0x07
-      @reserved2 << (tmp & 0x08) > 0
+      @reserved1 << ((tmp & 0x80) > 0)
+      @pad1 << ((tmp >> 4) & 0x07)
+      @reserved2 << ((tmp & 0x08) > 0)
       @pad2 << (tmp & 0x07)
     end
   end
