@@ -115,7 +115,7 @@ end
 |Sample Auxiliary Information Sizes Box       |      saiz      |OK         | \ 8.7.8
 |Sample Auxiliary Information Offsets Box     |      saio      |OK         | \ 8.7.9
 |Movie Extends Box                            |      mvex      |OK         | \ 8.8.1
-|Movie Extends Header Box                     |      mehd      |Parsable   | \ 8.8.2
+|Movie Extends Header Box                     |      mehd      |OK         | \ 8.8.2
 |Track Extends Box                            |      trex      |Parsable   | \ 8.8.3
 |Movie Fragment Box                           |      moof      |Parsable   | \ 8.8.4
 |Movie Fragment Header Box                    |      mfhd      |Parsable   | \ 8.8.5
