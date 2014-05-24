@@ -108,7 +108,7 @@ end
 |Data Reference Box                           |url , urn , dref|OK         | \ 8.7.2
 |Sample Size Box                              |      stsz      |OK         | \ 8.7.3.2
 |Compact Sample Size Box                      |      stz2      |OK         | \ 8.7.3.3
-|Sample to Chunk Box                          |      stsc      |Parsable   | \ 8.7.4
+|Sample to Chunk Box                          |      stsc      |OK         | \ 8.7.4
 |Chunk Offset Box                             |   stco, co64   |Parsable   | \ 8.7.5
 |Padding Bits Box                             |      padb      |Parsable   | \ 8.7.6
 |Sub-Sample Information Box                   |      subs      |Parsable   | \ 8.7.7
