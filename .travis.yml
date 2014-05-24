@@ -5,6 +5,6 @@ rvm:
  - 2.1.1
 notifications:
  email:
-  on_success: always
+  on_success: change
   on_failure: always
 
