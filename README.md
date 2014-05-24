@@ -4,6 +4,9 @@ This gem library is an ISO Base Media File Format (BMFF) parser.
 You can parse BMFF file.
 And you may be able to parse a file related to BMFF like MP4.
 
+[![Build Status](https://travis-ci.org/zuku/bmff.svg?branch=master)](https://travis-ci.org/zuku/bmff)
+[![Gem Version](https://badge.fury.io/rb/bmff.svg)](http://badge.fury.io/rb/bmff)
+
 ## Installation
 
 Add this line to your application's Gemfile:
