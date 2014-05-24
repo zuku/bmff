@@ -121,7 +121,7 @@ end
 |Movie Fragment Header Box                    |      mfhd      |OK         | \ 8.8.5
 |Track Fragment Box                           |      traf      |OK         | \ 8.8.6
 |Track Fragment Header Box                    |      tfhd      |OK         | \ 8.8.7
-|Track Fragment Run Box                       |      trun      |Parsable   | \ 8.8.8
+|Track Fragment Run Box                       |      trun      |OK         | \ 8.8.8
 |Movie Fragment Random Access Box             |      mfra      |Parsable   | \ 8.8.9
 |Track Fragment Random Access Box             |      tfra      |Parsable   | \ 8.8.10
 |Movie Fragment Random Access Offset Box      |      mfro      |Parsable   | \ 8.8.11
