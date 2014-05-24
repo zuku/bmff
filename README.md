@@ -123,7 +123,7 @@ end
 |Track Fragment Header Box                    |      tfhd      |OK         | \ 8.8.7
 |Track Fragment Run Box                       |      trun      |OK         | \ 8.8.8
 |Movie Fragment Random Access Box             |      mfra      |OK         | \ 8.8.9
-|Track Fragment Random Access Box             |      tfra      |Parsable   | \ 8.8.10
+|Track Fragment Random Access Box             |      tfra      |OK         | \ 8.8.10
 |Movie Fragment Random Access Offset Box      |      mfro      |Parsable   | \ 8.8.11
 |Track fragment decode time                   |      tfdt      |Parsable   | \ 8.8.12
 |Level Assignment Box                         |      leva      |Parsable   | \ 8.8.13

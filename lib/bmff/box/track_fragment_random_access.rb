@@ -41,10 +41,10 @@ class BMFF::Box::TrackFragmentRandomAccess < BMFF::Box::Full
       io.get_uint8
     when 16
       io.get_uint16
+    when 24
+      io.get_uint24
     when 32
       io.get_uint32
-    when 64
-      io.get_uint64
     else
       raise ArgumentError, "Unsupported field size."
     end
