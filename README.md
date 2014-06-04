@@ -146,10 +146,10 @@ end
 |Metabox Relation Box                         |      mere      |Not yet    | \ 8.11.8
 |Item Data Box                                |      idat      |Not yet    | \ 8.11.11
 |Item Reference Box                           |      iref      |Not yet    | \ 8.11.12
-|Protection Scheme Information Box            |      sinf      |Not yet    | \ 8.12.1
-|Original Format Box                          |      frma      |Not yet    | \ 8.12.2
-|Scheme Type Box                              |      schm      |Not yet    | \ 8.12.5
-|Scheme Information Box                       |      schi      |Not yet    | \ 8.12.6
+|Protection Scheme Information Box            |      sinf      |OK         | \ 8.12.1
+|Original Format Box                          |      frma      |OK         | \ 8.12.2
+|Scheme Type Box                              |      schm      |OK         | \ 8.12.5
+|Scheme Information Box                       |      schi      |OK         | \ 8.12.6
 |FD Item Information Box                      |      fiin      |Not yet    | \ 8.13.2
 |File Partition Box                           |      fpar      |Not yet    | \ 8.13.3
 |FEC Reservoir Box                            |      fecr      |Not yet    | \ 8.13.4
