@@ -83,6 +83,10 @@ require "bmff/box/level_assignment"
 require "bmff/box/user_data"
 require "bmff/box/copyright"
 require "bmff/box/track_selection"
+require "bmff/box/protection_scheme_info"
+require "bmff/box/original_format"
+require "bmff/box/scheme_type"
+require "bmff/box/scheme_information"
 
 module BMFF::Box
   def self.get_box(io, parent, box_class = nil)
