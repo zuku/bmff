@@ -798,7 +798,9 @@ class TestBMFFBinaryAccessor < MiniTest::Unit::TestCase
   def test_get_uuid
     io = StringIO.new("\x00\x01\x02\x03\x04\x05\x06\x07\x80\x90\xA0\xB0\xC0\xD0\xE0\xF0", "r:ascii-8bit")
     io.extend(BMFF::BinaryAccessor)
-    assert_equal("\x00\x01\x02\x03\x04\x05\x06\x07\x80\x90\xA0\xB0\xC0\xD0\xE0\xF0".force_encoding("ascii-8bit"), io.get_uuid)
+    uuid = io.get_uuid
+    assert_kind_of(UUIDTools::UUID, uuid)
+    assert_equal("00010203-0405-0607-8090-a0b0c0d0e0f0", uuid.to_s)
     assert(io.eof?)
   end
 
