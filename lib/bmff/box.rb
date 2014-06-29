@@ -90,6 +90,7 @@ require "bmff/box/scheme_information"
 
 # UUID boxes
 require "bmff/box/protection_system_specific_header"
+require "bmff/box/track_encryption"
 
 module BMFF::Box
   def self.get_box(io, parent, box_class = nil)
