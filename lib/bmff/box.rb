@@ -93,27 +93,43 @@ module BMFF::Box
     offset = io.pos
     size = io.get_uint32
     type = io.get_ascii(4)
+    largesize = nil
+    if size == 1
+      largesize = io.get_uint64
+    end
+    usertype = nil
+    if type == 'uuid'
+      usertype = io.get_uuid
+    end
 
     if box_class
       klass = box_class
     else
-      klass = get_box_class(type)
+      if usertype
+        klass = get_uuid_box_class(usertype)
+      else
+        klass = get_box_class(type)
+      end
     end
+    klass ||= BMFF::Box::Unknown
     box = klass.new
     box.io = io
     box.offset = offset
     box.parent = parent
     box.size = size
     box.type = type
+    box.largesize = largesize
+    box.usertype = usertype
 
     box.parse
     return box
   end
 
   def self.get_box_class(type)
-    if klass = Map.get_box_class(type)
-      return klass
-    end
-    return BMFF::Box::Unknown
+    Map.get_box_class(type)
+  end
+
+  def self.get_uuid_box_class(uuid)
+    Map.get_uuid_box_class(uuid)
   end
 end

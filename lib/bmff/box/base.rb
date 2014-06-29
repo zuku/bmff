@@ -11,6 +11,10 @@ class BMFF::Box::Base
     end
   end
 
+  def self.register_uuid_box(uuid)
+    BMFF::Box::Map.register_uuid_box(uuid, self)
+  end
+
   def actual_size
     return largesize if size == 1
     return nil if size == 0
@@ -52,12 +56,6 @@ class BMFF::Box::Base
   end
 
   def parse_data
-    if size == 1
-      @largesize = io.get_uint64
-    end
-    if type == 'uuid'
-      @usertype = io.get_uuid
-    end
   end
 
   def container?
