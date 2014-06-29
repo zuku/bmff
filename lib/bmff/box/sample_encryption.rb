@@ -52,8 +52,16 @@ class BMFF::Box::SampleEncryption < BMFF::Box::Full
     end
   end
 
+  @@cached_root_object_id = nil
+  @@cached_track_encryption = nil
+
   def find_track_encryption
-    root.select_descendants(BMFF::Box::TrackEncryption).first
+    root_container = root
+    unless root_container.object_id == @@cached_root_object_id
+      @@cached_root_object_id = root_container.object_id
+      @@cached_track_encryption = root_container.select_descendants(BMFF::Box::TrackEncryption).first
+    end
+    @@cached_track_encryption
   end
 
   private :default_iv_size, :find_track_encryption
