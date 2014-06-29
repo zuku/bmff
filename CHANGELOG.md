@@ -1,10 +1,15 @@
-#### [Current]
+#### 0.1.0
 
+ * Support for UUID box parsing
+ * Add dependency on UUIDTools
  * Add support for following boxes
      * Protection Scheme Information Box
      * Original Format Box
      * Scheme Type Box
      * Scheme Information Box
+     * Protection System Specific Header Box (PIFF 1.1)
+     * Sample Encryption Box (PIFF 1.1)
+     * Track Encryption Box (PIFF 1.1)
 
 
 #### 0.0.1
