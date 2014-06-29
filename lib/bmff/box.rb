@@ -88,6 +88,9 @@ require "bmff/box/original_format"
 require "bmff/box/scheme_type"
 require "bmff/box/scheme_information"
 
+# UUID boxes
+require "bmff/box/protection_system_specific_header"
+
 module BMFF::Box
   def self.get_box(io, parent, box_class = nil)
     offset = io.pos
