@@ -804,4 +804,48 @@ class TestBMFFBinaryAccessor < MiniTest::Unit::TestCase
     assert(io.eof?)
   end
 
+  def test_write_uuid_string
+    io = StringIO.new("", "r+:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    io.write_uuid("00010203-0405-0607-8090-a0b0c0d0e0f0")
+    io.pos = 0
+    assert_equal("\x00\x01\x02\x03\x04\x05\x06\x07\x80\x90\xA0\xB0\xC0\xD0\xE0\xF0", io.read)
+  end
+
+  def test_write_uuid_object
+    io = StringIO.new("", "r+:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    io.write_uuid(UUIDTools::UUID.parse("00010203-0405-0607-8090-a0b0c0d0e0f0"))
+    io.pos = 0
+    assert_equal("\x00\x01\x02\x03\x04\x05\x06\x07\x80\x90\xA0\xB0\xC0\xD0\xE0\xF0", io.read)
+  end
+
+  def test_write_uuid_invalid_value
+    io = StringIO.new("", "r+:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    assert_raises(TypeError) do
+      io.write_uuid(nil)
+    end
+    assert_raises(TypeError) do
+      io.write_uuid(0)
+    end
+    assert_raises(TypeError) do
+      io.write_uuid(0.1)
+    end
+    assert_raises(TypeError) do
+      io.write_uuid(true)
+    end
+    assert_raises(TypeError) do
+      io.write_uuid(false)
+    end
+    assert_raises(TypeError) do
+      io.write_uuid(:uuid)
+    end
+    assert_raises(ArgumentError) do
+      io.write_uuid("ZZZZZZZZ-YYYY-XXXX-WWWW-VVVVVVVVVVVV")
+    end
+    assert_raises(ArgumentError) do
+      io.write_uuid("0")
+    end
+  end
 end

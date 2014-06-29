@@ -156,6 +156,19 @@ module BMFF::BinaryAccessor
     UUIDTools::UUID.parse_raw(_read(16))
   end
 
+  def write_uuid(uuid)
+    uuid_to_write = nil
+    case uuid
+    when UUIDTools::UUID
+      uuid_to_write = uuid
+    when String
+      uuid_to_write = UUIDTools::UUID.parse(uuid)
+    else
+      raise TypeError
+    end
+    write(uuid_to_write.raw)
+  end
+
   private
   def flip_byte_if_needed(data)
     if BYTE_ORDER == :le
