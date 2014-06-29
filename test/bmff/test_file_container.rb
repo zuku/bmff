@@ -55,4 +55,13 @@ class TestBMFFFileContainer < MiniTest::Unit::TestCase
       assert_equal(0, boxes.count)
     end
   end
+
+  def test_root
+    open(get_sample_file_path(SAMPLE_FILE_COMMON_MP4), "rb:ascii-8bit") do |f|
+      file_container = BMFF::FileContainer.parse(f)
+      assert_kind_of(BMFF::FileContainer, file_container)
+      stco = file_container.select_descendants(BMFF::Box::ChunkOffset).first
+      assert_same(file_container, stco.root)
+    end
+  end
 end

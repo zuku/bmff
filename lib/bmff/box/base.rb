@@ -61,4 +61,10 @@ class BMFF::Box::Base
   def container?
     false
   end
+
+  def root
+    ancestor = parent
+    ancestor = ancestor.parent while ancestor.respond_to?(:parent) && ancestor.parent
+    ancestor
+  end
 end
