@@ -173,7 +173,7 @@ end
 |Box Name                                     |                UUID                |   Status  |
 |:--------------------------------------------|:----------------------------------:|:---------:|
 |Protection System Specific Header Box        |d08a4f18-10f3-4a82-b6c8-32d8aba183d3|OK         | \ 5.3.1
-|Sample Encryption Box                        |a2394f52-5a9B-4f14-a244-6c427c648df4|Not yet    | \ 5.3.2
+|Sample Encryption Box                        |a2394f52-5a9b-4f14-a244-6c427c648df4|Not yet    | \ 5.3.2
 |Track Encryption Box                         |8974dbce-7be7-4c51-84f9-7148f9882554|Not yet    | \ 5.3.3
 
 
