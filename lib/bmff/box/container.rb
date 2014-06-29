@@ -24,7 +24,7 @@ module BMFF::Box::Container
     @children << child
   end
 
-  # Find a box which has a specific type from this children.
+  # Find a box which has a specific type from my children.
   def find(boxtype)
     (@children || []).each do |child|
       case boxtype
@@ -37,7 +37,7 @@ module BMFF::Box::Container
     nil
   end
 
-  # Find boxes which have a specific type from this children.
+  # Find boxes which have a specific type from my children.
   def find_all(boxtype)
     found_boxes = []
     (@children || []).each do |child|
@@ -51,7 +51,7 @@ module BMFF::Box::Container
     found_boxes
   end
 
-  # Find boxes which have a specific type from this descendants.
+  # Find boxes which have a specific type from my descendants.
   def select_descendants(boxtype)
     selected_boxes = []
     (@children || []).each do |child|

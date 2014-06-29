@@ -1,6 +1,8 @@
 # coding: utf-8
 # vim: set expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent:
 
+require "uuidtools"
+
 module BMFF::BinaryAccessor
   BYTE_ORDER = "\xFE\xFF".unpack("s").first == 0xFEFF ? :be : :le
 
@@ -151,8 +153,20 @@ module BMFF::BinaryAccessor
   end
 
   def get_uuid
-    # TODO: create and return UUID type.
-    _read(16)
+    UUIDTools::UUID.parse_raw(_read(16))
+  end
+
+  def write_uuid(uuid)
+    uuid_to_write = nil
+    case uuid
+    when UUIDTools::UUID
+      uuid_to_write = uuid
+    when String
+      uuid_to_write = UUIDTools::UUID.parse(uuid)
+    else
+      raise TypeError
+    end
+    write(uuid_to_write.raw)
   end
 
   private
