@@ -146,10 +146,10 @@ end
 |Metabox Relation Box                         |      mere      |Not yet    | \ 8.11.8
 |Item Data Box                                |      idat      |Not yet    | \ 8.11.11
 |Item Reference Box                           |      iref      |Not yet    | \ 8.11.12
-|Protection Scheme Information Box            |      sinf      |Not yet    | \ 8.12.1
-|Original Format Box                          |      frma      |Not yet    | \ 8.12.2
-|Scheme Type Box                              |      schm      |Not yet    | \ 8.12.5
-|Scheme Information Box                       |      schi      |Not yet    | \ 8.12.6
+|Protection Scheme Information Box            |      sinf      |OK         | \ 8.12.1
+|Original Format Box                          |      frma      |OK         | \ 8.12.2
+|Scheme Type Box                              |      schm      |OK         | \ 8.12.5
+|Scheme Information Box                       |      schi      |OK         | \ 8.12.6
 |FD Item Information Box                      |      fiin      |Not yet    | \ 8.13.2
 |File Partition Box                           |      fpar      |Not yet    | \ 8.13.3
 |FEC Reservoir Box                            |      fecr      |Not yet    | \ 8.13.4
@@ -166,6 +166,15 @@ end
 |Segment Index Box                            |      sidx      |Not yet    | \ 8.16.3
 |Subsegment Index Box                         |      ssix      |Not yet    | \ 8.16.4
 |Producer Reference Time Box                  |      prft      |Not yet    | \ 8.16.5
+
+
+### Protected Interoperable File Format (PIFF) 1.1
+
+|Box Name                                     |                UUID                |   Status  |
+|:--------------------------------------------|:----------------------------------:|:---------:|
+|Protection System Specific Header Box        |d08a4f18-10f3-4a82-b6c8-32d8aba183d3|OK         | \ 5.3.1
+|Sample Encryption Box                        |a2394f52-5a9b-4f14-a244-6c427c648df4|OK         | \ 5.3.2
+|Track Encryption Box                         |8974dbce-7be7-4c51-84f9-7148f9882554|OK         | \ 5.3.3
 
 
 ## Contributing

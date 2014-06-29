@@ -3,13 +3,23 @@
 
 class BMFF::Box::Map
   class << self
+    @@map = {}
+    @@uuid_map = {}
+
     def register_box(type, klass)
-      @@map ||= {}
       @@map[type] = klass
     end
 
     def get_box_class(type)
-      return @@map[type]
+      @@map[type]
+    end
+
+    def register_uuid_box(uuid, klass)
+      @@uuid_map[UUIDTools::UUID.parse(uuid).to_s] = klass
+    end
+
+    def get_uuid_box_class(uuid)
+      @@uuid_map[uuid.to_s]
     end
   end
 end
