@@ -5,6 +5,8 @@ class BMFF::Box::SampleEncryption < BMFF::Box::Full
   attr_accessor :algorithm_id, :iv_size, :kid, :sample_count, :samples
   register_uuid_box "a2394f52-5a9b-4f14-a244-6c427c648df4"
 
+  DEFAULT_IV_SIZE = 8
+
   class Sample
     attr_accessor :initialization_vector, :number_of_entries, :entries
   end
@@ -48,7 +50,7 @@ class BMFF::Box::SampleEncryption < BMFF::Box::Full
     if track_encryption = find_track_encryption
       track_encryption.default_iv_size
     else
-      nil
+      DEFAULT_IV_SIZE
     end
   end
 
