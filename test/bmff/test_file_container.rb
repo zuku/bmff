@@ -27,6 +27,25 @@ class TestBMFFFileContainer < MiniTest::Unit::TestCase
     end
   end
 
+  def test_find
+    open(get_sample_file_path(SAMPLE_FILE_COMMON_MP4), "rb:ascii-8bit") do |f|
+      file_container = BMFF::FileContainer.parse(f)
+      assert_kind_of(BMFF::FileContainer, file_container)
+      assert_kind_of(Array, file_container.boxes)
+      assert_equal(5, file_container.boxes.count)
+
+      box = file_container.find(BMFF::Box::FileType)
+      assert_kind_of(BMFF::Box::FileType, box)
+      box = file_container.find("ftyp")
+      assert_kind_of(BMFF::Box::FileType, box)
+
+      box = file_container.find(BMFF::Box::TrackRun)
+      assert_nil(box)
+      box = file_container.find("trun")
+      assert_nil(box)
+    end
+  end
+
   def test_select_descendants
     open(get_sample_file_path(SAMPLE_FILE_COMMON_MP4), "rb:ascii-8bit") do |f|
       file_container = BMFF::FileContainer.parse(f)
