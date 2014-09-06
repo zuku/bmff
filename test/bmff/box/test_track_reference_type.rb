@@ -80,7 +80,7 @@ class TestBMFFBoxTrackReferenceType < MiniTest::Unit::TestCase
     assert_equal([1], box.track_ids)
   end
 
-  def test_parse_cdsc
+  def test_parse_vplx
     io = StringIO.new("", "r+:ascii-8bit")
     io.extend(BMFF::BinaryAccessor)
     io.write_uint32(0)
