@@ -35,4 +35,32 @@ class TestBMFFBoxProtectionSystemSpecificHeader < MiniTest::Unit::TestCase
     assert_equal(16, box.data_size)
     assert_equal("datadatadatadata", box.data)
   end
+
+  def test_parse_pssh_box
+    io = StringIO.new("", "r+:ascii-8bit")
+    io.extend(BMFF::BinaryAccessor)
+    io.write_uint32(0)
+    io.write_ascii("pssh")
+    io.write_uint8(0) # version
+    io.write_uint24(0) # flags
+
+    io.write_uuid("5e629af5-38da-4063-8977-97ffbd9902d4") # system_id (Marlin)
+    io.write_uint32(16) # data_size
+    io.write_byte("datadatadatadata") # data
+
+    size = io.pos
+    io.pos = 0
+    io.write_uint32(size)
+    io.pos = 0
+
+    box = BMFF::Box.get_box(io, nil)
+    assert_instance_of(BMFF::Box::ProtectionSystemSpecificHeader, box)
+    assert_equal(size, box.actual_size)
+    assert_equal("pssh", box.type)
+    assert_equal(0, box.version)
+    assert_equal(0, box.flags)
+    assert_equal("5e629af5-38da-4063-8977-97ffbd9902d4", box.system_id.to_s)
+    assert_equal(16, box.data_size)
+    assert_equal("datadatadatadata", box.data)
+  end
 end
