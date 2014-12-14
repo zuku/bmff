@@ -3,6 +3,7 @@
 
 class BMFF::Box::ProtectionSystemSpecificHeader < BMFF::Box::Full
   attr_accessor :system_id, :data_size, :data
+  register_box "pssh"
   register_uuid_box "d08a4f18-10f3-4a82-b6c8-32d8aba183d3"
 
   def parse_data
