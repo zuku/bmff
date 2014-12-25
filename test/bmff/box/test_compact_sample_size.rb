@@ -5,7 +5,7 @@ require_relative '../../minitest_helper'
 require 'bmff/box'
 require 'stringio'
 
-class TestBMFFBoxCompactSampleSize < MiniTest::Unit::TestCase
+class TestBMFFBoxCompactSampleSize < Minitest::Test
   def test_parse_filed_size_4
     io = StringIO.new("", "r+:ascii-8bit")
     io.extend(BMFF::BinaryAccessor)
