@@ -5,7 +5,7 @@ require_relative '../../minitest_helper'
 require 'bmff/box'
 require 'stringio'
 
-class TestBMFFBoxDegradationPriority < MiniTest::Unit::TestCase
+class TestBMFFBoxDegradationPriority < Minitest::Test
   class DummyBox
     attr_accessor :box
     def find(type)

@@ -5,7 +5,7 @@ require_relative '../../minitest_helper'
 require 'bmff/box'
 require 'stringio'
 
-class TestBMFFBoxSampleEncryption < MiniTest::Unit::TestCase
+class TestBMFFBoxSampleEncryption < Minitest::Test
   def get_dummy_parent
     io = StringIO.new("", "r+:ascii-8bit")
     io.extend(BMFF::BinaryAccessor)
