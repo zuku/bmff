@@ -5,7 +5,7 @@ require_relative '../../minitest_helper'
 require 'bmff/box'
 require 'stringio'
 
-class TestBMFFBoxTrackFragmentHeader < MiniTest::Unit::TestCase
+class TestBMFFBoxTrackFragmentHeader < Minitest::Test
   def test_parse_flags_full_present
     io = StringIO.new("", "r+:ascii-8bit")
     io.extend(BMFF::BinaryAccessor)

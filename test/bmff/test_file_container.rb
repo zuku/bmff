@@ -4,7 +4,7 @@
 require_relative '../minitest_helper'
 require 'bmff/file_container'
 
-class TestBMFFFileContainer < MiniTest::Unit::TestCase
+class TestBMFFFileContainer < Minitest::Test
   SAMPLE_FILE_COMMON_MP4 = 'bmff.mp4'
 
   def get_sample_file_path(file_name)

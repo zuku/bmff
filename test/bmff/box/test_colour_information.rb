@@ -5,7 +5,7 @@ require_relative '../../minitest_helper'
 require 'bmff/box'
 require 'stringio'
 
-class TestBMFFBoxColourInformation < MiniTest::Unit::TestCase
+class TestBMFFBoxColourInformation < Minitest::Test
   def test_parse_nclx
     io = StringIO.new("", "r+:ascii-8bit")
     io.extend(BMFF::BinaryAccessor)

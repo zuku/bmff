@@ -5,7 +5,7 @@ require_relative '../minitest_helper'
 require 'bmff/binary_accessor'
 require 'stringio'
 
-class TestBMFFBinaryAccessor < MiniTest::Unit::TestCase
+class TestBMFFBinaryAccessor < Minitest::Test
   def test_get_int8
     io = StringIO.new("\x00\xFF\x80", "r:ascii-8bit")
     io.extend(BMFF::BinaryAccessor)
