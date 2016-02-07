@@ -4,6 +4,8 @@ rvm:
  - 2.1
  - 2.2
  - ruby-head
+before_install:
+  - sudo apt-get -qq update
 notifications:
  email:
   on_success: change
