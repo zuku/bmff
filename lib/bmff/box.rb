@@ -88,6 +88,7 @@ require "bmff/box/original_format"
 require "bmff/box/scheme_type"
 require "bmff/box/scheme_information"
 require "bmff/box/segment_type"
+require "bmff/box/segment_index"
 
 # UUID boxes
 require "bmff/box/protection_system_specific_header"
