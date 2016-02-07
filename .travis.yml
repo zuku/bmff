@@ -6,6 +6,7 @@ rvm:
  - ruby-head
 before_install:
   - sudo apt-get -qq update
+  - gem update bundler
 notifications:
  email:
   on_success: change
