@@ -165,7 +165,7 @@ end
 |Stereo Video Box                             |      stvi      |Not yet    | \ 8.15.4.2
 |Segment Type Box                             |      styp      |OK         | \ 8.16.2
 |Segment Index Box                            |      sidx      |OK         | \ 8.16.3
-|Subsegment Index Box                         |      ssix      |Not yet    | \ 8.16.4
+|Subsegment Index Box                         |      ssix      |OK         | \ 8.16.4
 |Producer Reference Time Box                  |      prft      |Not yet    | \ 8.16.5
 
 
