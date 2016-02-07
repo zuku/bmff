@@ -163,10 +163,18 @@ end
 |Sub Track Sample Group Box                   |      stsg      |Not yet    | \ 8.14.6
 |Restricted Scheme Information Box            |      rinf      |Not yet    | \ 8.15.3
 |Stereo Video Box                             |      stvi      |Not yet    | \ 8.15.4.2
-|Segment Type Box                             |      styp      |Not yet    | \ 8.16.2
-|Segment Index Box                            |      sidx      |Not yet    | \ 8.16.3
-|Subsegment Index Box                         |      ssix      |Not yet    | \ 8.16.4
+|Segment Type Box                             |      styp      |OK         | \ 8.16.2
+|Segment Index Box                            |      sidx      |OK         | \ 8.16.3
+|Subsegment Index Box                         |      ssix      |OK         | \ 8.16.4
 |Producer Reference Time Box                  |      prft      |Not yet    | \ 8.16.5
+
+
+### ISO/IEC 23001-7:2012
+
+|Box Name                                     |      Type      |   Status  |
+|:--------------------------------------------|:--------------:|:---------:|
+|Protection System Specific Header Box        |      pssh      |OK         | \ 8.1
+|Track Encryption Box                         |      tenc      |OK         | \ 8.2
 
 
 ### Protected Interoperable File Format (PIFF) 1.1
