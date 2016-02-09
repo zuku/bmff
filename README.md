@@ -136,7 +136,7 @@ end
 |User Data Box                                |      udta      |OK         | \ 8.10.1
 |Copyright Box                                |      cprt      |OK         | \ 8.10.2
 |Track Selection Box                          |      tsel      |OK         | \ 8.10.3
-|The Meta Box                                 |      meta      |Not yet    | \ 8.11.1
+|The Meta Box                                 |      meta      |OK         | \ 8.11.1
 |XML Box                                      |      xml       |Not yet    | \ 8.11.2
 |Binary XML Box                               |      bxml      |Not yet    | \ 8.11.2
 |The Item Location Box                        |      iloc      |Not yet    | \ 8.11.3
