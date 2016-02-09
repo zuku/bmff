@@ -1,3 +1,8 @@
+#### 0.1.2
+
+ * Add support for The Meta Box
+
+
 #### 0.1.1
 
  * Add support for following boxes
