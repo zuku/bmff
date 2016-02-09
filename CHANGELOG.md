@@ -1,3 +1,20 @@
+#### 0.1.2
+
+ * Add support for The Meta Box
+
+
+#### 0.1.1
+
+ * Add support for following boxes
+     * Segment Type Box
+     * Segment Index Box
+     * Subsegment Index Box
+     * Protection System Specific Header Box (ISO/IEC 23001-7)
+     * Track Encryption Box (ISO/IEC 23001-7)
+ * Use MiniTest 5.0
+ * Bmff works only with Ruby 2.0.x or later
+
+
 #### 0.1.0
 
  * Support for UUID box parsing
