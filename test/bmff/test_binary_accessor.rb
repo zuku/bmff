@@ -31,7 +31,7 @@ class TestBMFFBinaryAccessor < Minitest::Test
     io.write_int8(-1)
     io.write_int8(-128)
     io.pos = 0
-    assert_equal("\x00\x7F\xFF\x80", io.read)
+    assert_equal("\x00\x7F\xFF\x80".b, io.read)
   end
 
   def test_write_int8_out_of_range
@@ -88,7 +88,7 @@ class TestBMFFBinaryAccessor < Minitest::Test
     io.write_uint8(0)
     io.write_uint8(255)
     io.pos = 0
-    assert_equal("\x00\xFF", io.read)
+    assert_equal("\x00\xFF".b, io.read)
   end
 
   def test_write_uint8_out_of_range
@@ -147,7 +147,7 @@ class TestBMFFBinaryAccessor < Minitest::Test
     io.write_int16(-1)
     io.write_int16(-32768)
     io.pos = 0
-    assert_equal("\x7F\xFF\x00\xFF\xFF\xFF\x80\x00", io.read)
+    assert_equal("\x7F\xFF\x00\xFF\xFF\xFF\x80\x00".b, io.read)
   end
 
   def test_write_int16_out_of_range
@@ -204,7 +204,7 @@ class TestBMFFBinaryAccessor < Minitest::Test
     io.write_uint16(255)
     io.write_uint16(65535)
     io.pos = 0
-    assert_equal("\x00\x00\x00\xFF\xFF\xFF", io.read)
+    assert_equal("\x00\x00\x00\xFF\xFF\xFF".b, io.read)
   end
 
   def test_write_uint16_out_of_range
@@ -252,7 +252,7 @@ class TestBMFFBinaryAccessor < Minitest::Test
     io.write_uint24(0)
     io.write_uint24(16777215)
     io.pos = 0
-    assert_equal("\x00\x00\x00\xFF\xFF\xFF", io.read)
+    assert_equal("\x00\x00\x00\xFF\xFF\xFF".b, io.read)
   end
 
   def test_write_uint24_out_of_range
@@ -310,7 +310,7 @@ class TestBMFFBinaryAccessor < Minitest::Test
     io.write_int32(-1)
     io.write_int32(-2147483648)
     io.pos = 0
-    assert_equal("\x00\x00\x00\x00\xFF\xFF\xFF\xFF\x80\x00\x00\x00", io.read)
+    assert_equal("\x00\x00\x00\x00\xFF\xFF\xFF\xFF\x80\x00\x00\x00".b, io.read)
   end
 
   def test_write_int32_out_of_range
@@ -368,7 +368,7 @@ class TestBMFFBinaryAccessor < Minitest::Test
     io.write_uint32(4294967295)
     io.write_uint32(2147483648)
     io.pos = 0
-    assert_equal("\x00\x00\x00\x00\xFF\xFF\xFF\xFF\x80\x00\x00\x00", io.read)
+    assert_equal("\x00\x00\x00\x00\xFF\xFF\xFF\xFF\x80\x00\x00\x00".b, io.read)
   end
 
   def test_write_uint32_out_of_range
@@ -427,8 +427,8 @@ class TestBMFFBinaryAccessor < Minitest::Test
     io.write_int64(-1)
     io.write_int64(-9223372036854775808)
     io.pos = 0
-    assert_equal("\x00\x00\x00\x00\x00\x00\x00\x00" + "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF" +
-                 "\x80\x00\x00\x00\x00\x00\x00\x00", io.read)
+    assert_equal(("\x00\x00\x00\x00\x00\x00\x00\x00" + "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF" +
+                 "\x80\x00\x00\x00\x00\x00\x00\x00").b, io.read)
   end
 
   def test_write_int64_out_of_range
@@ -487,8 +487,8 @@ class TestBMFFBinaryAccessor < Minitest::Test
     io.write_uint64(18446744073709551615)
     io.write_uint64(9223372036854775808)
     io.pos = 0
-    assert_equal("\x00\x00\x00\x00\x00\x00\x00\x00" + "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF" +
-                 "\x80\x00\x00\x00\x00\x00\x00\x00", io.read)
+    assert_equal(("\x00\x00\x00\x00\x00\x00\x00\x00" + "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF" +
+                 "\x80\x00\x00\x00\x00\x00\x00\x00").b, io.read)
   end
 
   def test_write_uint64_out_of_range
@@ -665,7 +665,7 @@ class TestBMFFBinaryAccessor < Minitest::Test
     io.write_byte("\xFF\xFE\xFD")
     io.write_byte("\x00\x01\x02\x03")
     io.pos = 0
-    assert_equal("\xFF\xFE\xFD\x00\x01\x02\x03", io.read)
+    assert_equal("\xFF\xFE\xFD\x00\x01\x02\x03".b, io.read)
   end
 
   def test_write_byte_invalid_value
@@ -757,7 +757,7 @@ class TestBMFFBinaryAccessor < Minitest::Test
     io.write_null_terminated_string("ABCDEFG ÀÁ 㿰㿱")
     io.write_null_terminated_string("À\x00")
     io.pos = 0
-    assert_equal("ABCDEFG \xC3\x80\xC3\x81 \xE3\xBF\xB0\xE3\xBF\xB1\x00\xC3\x80\x00", io.read)
+    assert_equal("ABCDEFG \xC3\x80\xC3\x81 \xE3\xBF\xB0\xE3\xBF\xB1\x00\xC3\x80\x00".b, io.read)
   end
 
   def test_write_null_terminated_string_invalid_value
@@ -809,7 +809,7 @@ class TestBMFFBinaryAccessor < Minitest::Test
     io.extend(BMFF::BinaryAccessor)
     io.write_uuid("00010203-0405-0607-8090-a0b0c0d0e0f0")
     io.pos = 0
-    assert_equal("\x00\x01\x02\x03\x04\x05\x06\x07\x80\x90\xA0\xB0\xC0\xD0\xE0\xF0", io.read)
+    assert_equal("\x00\x01\x02\x03\x04\x05\x06\x07\x80\x90\xA0\xB0\xC0\xD0\xE0\xF0".b, io.read)
   end
 
   def test_write_uuid_object
@@ -817,7 +817,7 @@ class TestBMFFBinaryAccessor < Minitest::Test
     io.extend(BMFF::BinaryAccessor)
     io.write_uuid(UUIDTools::UUID.parse("00010203-0405-0607-8090-a0b0c0d0e0f0"))
     io.pos = 0
-    assert_equal("\x00\x01\x02\x03\x04\x05\x06\x07\x80\x90\xA0\xB0\xC0\xD0\xE0\xF0", io.read)
+    assert_equal("\x00\x01\x02\x03\x04\x05\x06\x07\x80\x90\xA0\xB0\xC0\xD0\xE0\xF0".b, io.read)
   end
 
   def test_write_uuid_invalid_value
